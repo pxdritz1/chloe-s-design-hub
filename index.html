@@ -12,6 +12,17 @@
     <meta property="og:description" content="A calm, local-first collection of creative tools for color, image, vector and type." />
     <meta name="twitter:card" content="summary" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script>
+      (function () {
+        try {
+          var stored = JSON.parse(localStorage.getItem("chloe-design-hub-preferences") || "{}");
+          var theme = (stored.state && stored.state.theme) || "system";
+          var dark = theme === "dark" || (theme === "system" && matchMedia("(prefers-color-scheme: dark)").matches);
+          document.documentElement.dataset.theme = dark ? "dark" : "light";
+          document.documentElement.style.colorScheme = dark ? "dark" : "light";
+        } catch (error) {}
+      })();
+    </script>
     <title>chloe's design hub</title>
   </head>
   <body>
