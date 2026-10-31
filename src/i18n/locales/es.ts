@@ -28,7 +28,7 @@ export const es: Translation = {
   colorTools: {
     pick: "elegir color",
     input: "valor del color",
-    invalid: "no pude leer ese color. prueba hex, rgb(), hsl() u oklch.",
+    invalid: "no pude leer ese color. prueba hex, rgb(), hsl() u oklch().",
     formats: "formatos",
     copy: "copiar",
     copied: "copiado",
