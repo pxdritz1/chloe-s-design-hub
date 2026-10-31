@@ -1,10 +1,13 @@
 import { Suspense, useState } from "react";
-import { LayoutDashboard, Menu, Monitor, Moon, Palette, ShieldCheck, Sun } from "lucide-react";
+import { LayoutDashboard, Menu, Monitor, Moon, ShieldCheck, Sun } from "lucide-react";
 import { Link, Outlet } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { changeLanguage, isLanguage, languages } from "../../i18n";
 import { useApplyTheme } from "../../hooks/useApplyTheme";
+import { useFavicon } from "../../hooks/useFavicon";
+import { useGithubAvatar } from "../../hooks/useGithubAvatar";
 import { usePreferences, type Theme } from "../../stores/preferences";
+import { BrandMark } from "./BrandMark";
 
 const themes: Theme[] = ["light", "dark", "system"];
 const themeIcons = { light: Sun, dark: Moon, system: Monitor };
@@ -15,7 +18,9 @@ export function Shell() {
   const theme = usePreferences((state) => state.theme);
   const setTheme = usePreferences((state) => state.setTheme);
   const [menuOpen, setMenuOpen] = useState(false);
+  const avatar = useGithubAvatar();
   useApplyTheme();
+  useFavicon(avatar);
 
   const nextTheme = themes[(themes.indexOf(theme) + 1) % themes.length];
   const ThemeIcon = themeIcons[theme];
@@ -29,9 +34,7 @@ export function Shell() {
     <div className="min-h-screen bg-background p-2 text-foreground md:flex md:gap-2">
       <aside className="sticky top-2 hidden h-[calc(100vh-1rem)] w-60 shrink-0 flex-col self-start rounded-3xl border border-border bg-surface p-4 md:flex">
         <Link to="/dashboard" className="mb-10 flex items-center gap-3 rounded-xl p-1">
-          <span className="flex size-9 items-center justify-center rounded-xl bg-accent text-on-accent">
-            <Palette size={18} />
-          </span>
+          <BrandMark avatar={avatar} />
           <span>
             <span className="block font-mono text-sm font-semibold tracking-tight">chloe's design hub</span>
             <span className="mt-0.5 block text-xs text-muted">{t("tagline")}</span>
