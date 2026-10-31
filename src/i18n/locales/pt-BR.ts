@@ -25,6 +25,23 @@ export const ptBR: Translation = {
     vector: "vetor",
     type: "tipografia"
   },
+  colorTools: {
+    pick: "escolher cor",
+    input: "valor da cor",
+    invalid: "não consegui ler essa cor. tente hex, rgb(), hsl() ou oklch().",
+    formats: "formatos",
+    copy: "copiar",
+    copied: "copiado",
+    harmony: "harmonia",
+    scale: "escala de tons",
+    harmonies: {
+      analogous: "análogas",
+      complementary: "complementares",
+      triadic: "tríade",
+      split: "complementar dividida",
+      tetradic: "tétrade"
+    }
+  },
   tools: {
     halftone: { name: "criador de halftone", description: "transforme imagens em padrões expressivos de pontos." },
     wallpaper: { name: "estúdio de wallpapers", description: "crie wallpapers com formas, cores e texturas." },

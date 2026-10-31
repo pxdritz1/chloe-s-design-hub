@@ -25,6 +25,23 @@ export const es: Translation = {
     vector: "vector",
     type: "tipografía"
   },
+  colorTools: {
+    pick: "elegir color",
+    input: "valor del color",
+    invalid: "no pude leer ese color. prueba hex, rgb(), hsl() u oklch().",
+    formats: "formatos",
+    copy: "copiar",
+    copied: "copiado",
+    harmony: "armonía",
+    scale: "escala de tonos",
+    harmonies: {
+      analogous: "análogos",
+      complementary: "complementarios",
+      triadic: "triada",
+      split: "complementario dividido",
+      tetradic: "tetrada"
+    }
+  },
   tools: {
     halftone: { name: "creador de semitonos", description: "convierte imágenes en patrones expresivos de puntos." },
     wallpaper: { name: "estudio de fondos", description: "compón fondos con formas, color y textura." },

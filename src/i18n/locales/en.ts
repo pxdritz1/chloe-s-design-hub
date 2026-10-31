@@ -23,6 +23,23 @@ export const en = {
     vector: "vector",
     type: "typography"
   },
+  colorTools: {
+    pick: "pick a color",
+    input: "color value",
+    invalid: "couldn't read that color. try hex, rgb(), hsl() or oklch().",
+    formats: "formats",
+    copy: "copy",
+    copied: "copied",
+    harmony: "harmony",
+    scale: "tone scale",
+    harmonies: {
+      analogous: "analogous",
+      complementary: "complementary",
+      triadic: "triadic",
+      split: "split",
+      tetradic: "tetradic"
+    }
+  },
   tools: {
     halftone: { name: "halftone creator", description: "turn images into expressive dot patterns." },
     wallpaper: { name: "wallpaper studio", description: "compose wallpapers with shapes, color and texture." },
