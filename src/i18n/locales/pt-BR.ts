@@ -42,6 +42,27 @@ export const ptBR: Translation = {
       tetradic: "tétrade"
     }
   },
+  halftone: {
+    settings: "ajustes",
+    choose: "escolher imagem",
+    drop: "ou solte uma aqui",
+    hint: "png, jpg, webp ou gif. nada sai do seu navegador.",
+    another: "escolher outra imagem",
+    loading: "preparando imagem…",
+    error: "não consegui abrir essa imagem.",
+    scaled: "reduzida para {{size}}px no lado maior para ficar rápida.",
+    preview: "prévia do halftone",
+    size: "tamanho do ponto",
+    angle: "ângulo",
+    contrast: "contraste",
+    shape: "forma",
+    shapes: { circle: "círculo", square: "quadrado", line: "linha" },
+    ink: "tinta",
+    paper: "papel",
+    transparent: "papel transparente",
+    invert: "inverter",
+    download: "baixar png"
+  },
   tools: {
     halftone: { name: "criador de halftone", description: "transforme imagens em padrões expressivos de pontos." },
     wallpaper: { name: "estúdio de wallpapers", description: "crie wallpapers com formas, cores e texturas." },

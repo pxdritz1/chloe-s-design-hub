@@ -107,3 +107,9 @@ select {
     transition-duration: 0.01ms !important;
   }
 }
+
+.checker {
+  background-color: var(--surface);
+  background-image: conic-gradient(var(--border) 25%, transparent 0 50%, var(--border) 0 75%, transparent 0);
+  background-size: 16px 16px;
+}
