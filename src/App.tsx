@@ -3,7 +3,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Shell } from "./components/layout/Shell";
 
 const Dashboard = lazy(() => import("./pages/Dashboard"));
-const ToolLanding = lazy(() => import("./pages/ToolLanding"));
+const ToolPage = lazy(() => import("./pages/ToolPage"));
 
 export function App() {
   return (
@@ -11,7 +11,7 @@ export function App() {
       <Routes>
         <Route element={<Shell />}>
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/tools/:toolId" element={<ToolLanding />} />
+          <Route path="/tools/:toolId" element={<ToolPage />} />
           <Route path="*" element={<Navigate to="/dashboard" replace />} />
         </Route>
       </Routes>

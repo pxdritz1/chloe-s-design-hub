@@ -27,6 +27,10 @@ Pull requests and pushes to `main` run type-checking and a production build (`.g
 
 The Vite `base` comes from the `BASE_PATH` environment variable and defaults to `/`. The deploy workflow fills it in from GitHub Pages, so a project URL and a custom domain both work. `404.html` is a copy of `index.html`, which lets deep links reach the client-side router.
 
+## Network
+
+The only request the app makes on its own is one call to the public GitHub API (`api.github.com/users/<user>`) to show the maintainer's avatar in the sidebar and as the tab icon. The username lives in `src/config/site.ts`, the result is cached in `localStorage` for 24 hours, and the app falls back to the built-in icon if the request fails. Nothing from the user or their files is sent.
+
 ## Principles
 
 - **Local-first:** process creative files in the browser whenever practical.
