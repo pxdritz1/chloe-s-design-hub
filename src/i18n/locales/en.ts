@@ -40,6 +40,27 @@ export const en = {
       tetradic: "tetradic"
     }
   },
+  halftone: {
+    settings: "settings",
+    choose: "choose an image",
+    drop: "or drop one here",
+    hint: "png, jpg, webp or gif. it never leaves your browser.",
+    another: "choose another image",
+    loading: "preparing image…",
+    error: "couldn't open that image.",
+    scaled: "scaled down to {{size}}px on the longest side for speed.",
+    preview: "halftone preview",
+    size: "dot size",
+    angle: "angle",
+    contrast: "contrast",
+    shape: "shape",
+    shapes: { circle: "circle", square: "square", line: "line" },
+    ink: "ink",
+    paper: "paper",
+    transparent: "transparent paper",
+    invert: "invert",
+    download: "download png"
+  },
   tools: {
     halftone: { name: "halftone creator", description: "turn images into expressive dot patterns." },
     wallpaper: { name: "wallpaper studio", description: "compose wallpapers with shapes, color and texture." },

@@ -42,6 +42,27 @@ export const es: Translation = {
       tetradic: "tetrada"
     }
   },
+  halftone: {
+    settings: "ajustes",
+    choose: "elegir imagen",
+    drop: "o suelta una aquí",
+    hint: "png, jpg, webp o gif. nunca sale de tu navegador.",
+    another: "elegir otra imagen",
+    loading: "preparando imagen…",
+    error: "no pude abrir esa imagen.",
+    scaled: "reducida a {{size}}px en el lado mayor para ir más rápido.",
+    preview: "vista previa del halftone",
+    size: "tamaño del punto",
+    angle: "ángulo",
+    contrast: "contraste",
+    shape: "forma",
+    shapes: { circle: "círculo", square: "cuadrado", line: "línea" },
+    ink: "tinta",
+    paper: "papel",
+    transparent: "papel transparente",
+    invert: "invertir",
+    download: "descargar png"
+  },
   tools: {
     halftone: { name: "creador de semitonos", description: "convierte imágenes en patrones expresivos de puntos." },
     wallpaper: { name: "estudio de fondos", description: "compón fondos con formas, color y textura." },
