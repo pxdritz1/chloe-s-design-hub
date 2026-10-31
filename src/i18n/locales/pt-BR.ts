@@ -63,6 +63,38 @@ export const ptBR: Translation = {
     invert: "inverter",
     download: "baixar png"
   },
+  image: {
+    choose: "escolher imagem",
+    drop: "ou solte uma aqui",
+    hint: "png, jpg, webp ou gif. nada sai do seu navegador.",
+    another: "escolher outra imagem",
+    loading: "preparando imagem…",
+    error: "não consegui abrir essa imagem.",
+    scaled: "reduzida para {{size}}px no lado maior para ficar rápida.",
+    download: "baixar png"
+  },
+  colorMatrix: {
+    preview: "prévia da imagem recolorida",
+    swaps: "trocas de cor",
+    addSwap: "trocar uma cor",
+    pickFromImage: "pegar uma cor da imagem",
+    picking: "clique num ponto da imagem…",
+    to: "nova cor",
+    remove: "remover troca",
+    tolerance: "tolerância",
+    keepShading: "manter sombreado",
+    swapThis: "trocar esta cor",
+    copy: "copiar",
+    channels: "canais",
+    order: "ordem dos canais",
+    invert: "inverter",
+    r: "vermelho",
+    g: "verde",
+    b: "azul",
+    saturation: "saturação",
+    reset: "restaurar",
+    original: "mostrar original"
+  },
   tools: {
     halftone: { name: "criador de halftone", description: "transforme imagens em padrões expressivos de pontos." },
     wallpaper: { name: "estúdio de wallpapers", description: "crie wallpapers com formas, cores e texturas." },

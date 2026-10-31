@@ -1,6 +1,7 @@
-import { useCallback, useEffect, useMemo, useRef, useState, type DragEvent, type ReactNode } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type DragEvent } from "react";
 import { Download, ImagePlus } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { Field } from "../../components/Field";
 import { toLuma, type HalftoneParams, type Shape } from "./halftone";
 import { useHalftoneWorker } from "./useHalftoneWorker";
 
@@ -51,18 +52,6 @@ async function decode(file: File) {
   ctx.drawImage(bitmap, 0, 0, width, height);
   bitmap.close();
   return { width, height, luma: toLuma(ctx.getImageData(0, 0, width, height).data), scaled: scale < 1 };
-}
-
-function Field({ label, value, children }: { label: string; value?: string; children: ReactNode }) {
-  return (
-    <label className="block">
-      <span className="mb-1.5 flex items-center justify-between text-xs text-muted">
-        {label}
-        {value && <span className="text-foreground">{value}</span>}
-      </span>
-      {children}
-    </label>
-  );
 }
 
 export default function Halftone() {
@@ -155,7 +144,7 @@ export default function Halftone() {
     <div className="grid gap-2 lg:grid-cols-[20rem_minmax(0,1fr)]">
       <section className={`panel space-y-5`}>
         <h2 className="text-sm font-semibold">{t("halftone.settings")}</h2>
-        <fieldset disabled={!loaded} className="m-0 min-w-0 space-y-4 border-0 p-0 disabled:opacity-50">
+        <fieldset disabled={!loaded} className="min-w-0 space-y-4 border-0 p-0 disabled:opacity-50">
           <Field label={t("halftone.size")} value={`${settings.size}px`}>
             <input type="range" min={3} max={40} step={1} value={settings.size} onChange={(event) => patch({ size: Number(event.target.value) })} className="w-full accent-accent" />
           </Field>

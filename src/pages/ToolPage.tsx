@@ -39,7 +39,7 @@ export default function ToolPage() {
           <Icon size={24} strokeWidth={1.7} />
         </span>
         <div>
-          <p className="inline-block rounded-full bg-surface px-2.5 py-0.5 text-[11px] font-medium text-muted">{t(`category.${tool.category}`)}</p>
+          <p className="inline-block rounded-full border border-border bg-elevated px-2.5 py-0.5 text-[11px] font-medium text-muted">{t(`category.${tool.category}`)}</p>
           <h1 className="mt-2 text-4xl font-semibold tracking-[-0.03em]">{t(`tools.${tool.key}.name`)}</h1>
           <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted">{t(`tools.${tool.key}.description`)}</p>
         </div>

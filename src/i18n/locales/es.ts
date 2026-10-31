@@ -63,6 +63,38 @@ export const es: Translation = {
     invert: "invertir",
     download: "descargar png"
   },
+  image: {
+    choose: "elegir imagen",
+    drop: "o suelta una aquí",
+    hint: "png, jpg, webp o gif. nunca sale de tu navegador.",
+    another: "elegir otra imagen",
+    loading: "preparando imagen…",
+    error: "no pude abrir esa imagen.",
+    scaled: "reducida a {{size}}px en el lado mayor para ir más rápido.",
+    download: "descargar png"
+  },
+  colorMatrix: {
+    preview: "vista previa de la imagen recoloreada",
+    swaps: "cambios de color",
+    addSwap: "cambiar un color",
+    pickFromImage: "tomar un color de la imagen",
+    picking: "haz clic en un punto de la imagen…",
+    to: "color nuevo",
+    remove: "quitar cambio",
+    tolerance: "tolerancia",
+    keepShading: "mantener sombreado",
+    swapThis: "cambiar este color",
+    copy: "copiar",
+    channels: "canales",
+    order: "orden de canales",
+    invert: "invertir",
+    r: "rojo",
+    g: "verde",
+    b: "azul",
+    saturation: "saturación",
+    reset: "restablecer",
+    original: "mostrar original"
+  },
   tools: {
     halftone: { name: "creador de semitonos", description: "convierte imágenes en patrones expresivos de puntos." },
     wallpaper: { name: "estudio de fondos", description: "compón fondos con formas, color y textura." },

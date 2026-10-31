@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Check, Copy } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useCopy } from "../../hooks/useCopy";
 import {
   formatHsl,
   formatOklch,
@@ -18,27 +19,6 @@ import {
 const initialText = "#7b8f76";
 const initialColor: Rgb = { r: 123, g: 143, b: 118 };
 const harmonyKinds = Object.keys(harmonies) as HarmonyKind[];
-
-function useCopy() {
-  const [copied, setCopied] = useState<string | null>(null);
-
-  useEffect(() => {
-    if (!copied) return;
-    const timer = window.setTimeout(() => setCopied(null), 1500);
-    return () => window.clearTimeout(timer);
-  }, [copied]);
-
-  async function copy(value: string) {
-    try {
-      await navigator.clipboard.writeText(value);
-      setCopied(value);
-    } catch {
-      setCopied(null);
-    }
-  }
-
-  return { copied, copy };
-}
 
 interface SwatchesProps {
   colors: Rgb[];

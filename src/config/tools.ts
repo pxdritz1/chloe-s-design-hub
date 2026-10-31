@@ -32,7 +32,7 @@ export const tools: readonly Tool[] = [
   { id: "background-remover", key: "background", category: "image", icon: ScanLine, tone: "lavender" },
   { id: "converters", key: "converters", category: "image", icon: Repeat, tone: "clay" },
   { id: "color-tools", key: "colors", category: "color", icon: Palette, tone: "sage", load: () => import("../tools/color-tools") },
-  { id: "color-matrix", key: "colorMatrix", category: "color", icon: SlidersHorizontal, tone: "sand" },
+  { id: "color-matrix", key: "colorMatrix", category: "color", icon: SlidersHorizontal, tone: "sand", load: () => import("../tools/color-matrix") },
   { id: "accessibility", key: "accessibility", category: "color", icon: ShieldCheck, tone: "clay" },
   { id: "svg-tools", key: "svg", category: "vector", icon: Shapes, tone: "lavender" },
   { id: "typography", key: "typography", category: "type", icon: Type, tone: "sand" }

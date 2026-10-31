@@ -61,6 +61,38 @@ export const en = {
     invert: "invert",
     download: "download png"
   },
+  image: {
+    choose: "choose an image",
+    drop: "or drop one here",
+    hint: "png, jpg, webp or gif. it never leaves your browser.",
+    another: "choose another image",
+    loading: "preparing image…",
+    error: "couldn't open that image.",
+    scaled: "scaled down to {{size}}px on the longest side for speed.",
+    download: "download png"
+  },
+  colorMatrix: {
+    preview: "recolored image preview",
+    swaps: "color swaps",
+    addSwap: "swap a color",
+    pickFromImage: "pick a color from the image",
+    picking: "click a spot on the image…",
+    to: "new color",
+    remove: "remove swap",
+    tolerance: "tolerance",
+    keepShading: "keep shading",
+    swapThis: "swap this color",
+    copy: "copy",
+    channels: "channels",
+    order: "channel order",
+    invert: "invert",
+    r: "red",
+    g: "green",
+    b: "blue",
+    saturation: "saturation",
+    reset: "reset",
+    original: "show original"
+  },
   tools: {
     halftone: { name: "halftone creator", description: "turn images into expressive dot patterns." },
     wallpaper: { name: "wallpaper studio", description: "compose wallpapers with shapes, color and texture." },
