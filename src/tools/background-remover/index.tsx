@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { Download, ImagePlus, RotateCcw } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
@@ -52,7 +52,7 @@ export default function BackgroundRemover() {
     reader.readAsDataURL(file);
   }
 
-  function pickColor(event: React.MouseEvent<HTMLCanvasElement>) {
+  function pickColor(event: MouseEvent<HTMLCanvasElement>) {
     const canvas = canvasRef.current;
     const image = imageRef.current;
     if (!canvas || !image) return;
