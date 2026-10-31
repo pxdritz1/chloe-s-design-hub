@@ -11,6 +11,7 @@ import {
   Type,
   type LucideIcon
 } from "lucide-react";
+import type { ComponentType } from "react";
 
 export type ToolCategory = "image" | "color" | "vector" | "type";
 export type ToolTone = "sage" | "clay" | "sand" | "lavender";
@@ -21,6 +22,7 @@ export interface Tool {
   category: ToolCategory;
   icon: LucideIcon;
   tone: ToolTone;
+  load?: () => Promise<{ default: ComponentType }>;
 }
 
 export const tools: readonly Tool[] = [
