@@ -15,6 +15,7 @@ export default defineConfig(({ mode }) => {
   return {
     base: BASE_PATH || "/",
     plugins: [react(), tailwindcss()],
+    worker: { format: "es" as const },
     build: {
       rollupOptions: {
         output: {

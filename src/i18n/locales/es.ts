@@ -95,6 +95,20 @@ export const es: Translation = {
     reset: "restablecer",
     original: "mostrar original"
   },
+  removeBg: {
+    preview: "vista previa de la eliminación de fondo",
+    settings: "ajustes",
+    cutoff: "corte",
+    softness: "suavidad del borde",
+    background: "fondo",
+    transparent: "transparente",
+    color: "color sólido",
+    original: "mostrar original",
+    loadingModel: "cargando el modelo…",
+    working: "quitando el fondo…",
+    error: "algo salió mal al quitar el fondo.",
+    note: "un modelo pequeño se ejecuta en tu navegador y no se sube nada. funciona mejor con un sujeto claro sobre un fondo distinto."
+  },
   tools: {
     halftone: { name: "creador de semitonos", description: "convierte imágenes en patrones expresivos de puntos." },
     wallpaper: { name: "estudio de fondos", description: "compón fondos con formas, color y textura." },

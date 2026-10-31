@@ -93,6 +93,20 @@ export const en = {
     reset: "reset",
     original: "show original"
   },
+  removeBg: {
+    preview: "background removal preview",
+    settings: "settings",
+    cutoff: "cutoff",
+    softness: "edge softness",
+    background: "background",
+    transparent: "transparent",
+    color: "solid color",
+    original: "show original",
+    loadingModel: "loading the model…",
+    working: "removing the background…",
+    error: "something went wrong while removing the background.",
+    note: "a small model runs right in your browser, nothing is uploaded. it works best on a clear subject against a distinct background."
+  },
   tools: {
     halftone: { name: "halftone creator", description: "turn images into expressive dot patterns." },
     wallpaper: { name: "wallpaper studio", description: "compose wallpapers with shapes, color and texture." },

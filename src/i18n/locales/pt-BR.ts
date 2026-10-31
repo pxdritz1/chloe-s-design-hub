@@ -95,6 +95,20 @@ export const ptBR: Translation = {
     reset: "restaurar",
     original: "mostrar original"
   },
+  removeBg: {
+    preview: "prévia da remoção de fundo",
+    settings: "ajustes",
+    cutoff: "corte",
+    softness: "suavidade da borda",
+    background: "fundo",
+    transparent: "transparente",
+    color: "cor sólida",
+    original: "mostrar original",
+    loadingModel: "carregando o modelo…",
+    working: "removendo o fundo…",
+    error: "algo deu errado ao remover o fundo.",
+    note: "um modelo pequeno roda direto no seu navegador, nada é enviado. funciona melhor com um assunto claro sobre um fundo diferente."
+  },
   tools: {
     halftone: { name: "criador de halftone", description: "transforme imagens em padrões expressivos de pontos." },
     wallpaper: { name: "estúdio de wallpapers", description: "crie wallpapers com formas, cores e texturas." },

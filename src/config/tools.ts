@@ -29,7 +29,7 @@ export const tools: readonly Tool[] = [
   { id: "halftone", key: "halftone", category: "image", icon: CircleDot, tone: "clay", load: () => import("../tools/halftone") },
   { id: "wallpaper-studio", key: "wallpaper", category: "image", icon: Image, tone: "sage" },
   { id: "photocraft", key: "photocraft", category: "image", icon: Blend, tone: "sand" },
-  { id: "background-remover", key: "background", category: "image", icon: ScanLine, tone: "lavender" },
+  { id: "background-remover", key: "background", category: "image", icon: ScanLine, tone: "lavender", load: () => import("../tools/background-remover") },
   { id: "converters", key: "converters", category: "image", icon: Repeat, tone: "clay" },
   { id: "color-tools", key: "colors", category: "color", icon: Palette, tone: "sage", load: () => import("../tools/color-tools") },
   { id: "color-matrix", key: "colorMatrix", category: "color", icon: SlidersHorizontal, tone: "sand", load: () => import("../tools/color-matrix") },
