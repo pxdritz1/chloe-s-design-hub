@@ -19,28 +19,28 @@ export const ptBR: Translation = {
   light: "claro",
   dark: "escuro",
   system: "sistema",
-  category: { image: "imagem", color: "cor", vector: "vetor", type: "tipografia" },
+  category: {
+    image: "imagem",
+    color: "cor",
+    vector: "vetor",
+    type: "tipografia"
+  },
   colorTools: {
-    pick: "escolher cor", input: "valor da cor",
+    pick: "escolher cor",
+    input: "valor da cor",
     invalid: "não consegui ler essa cor. tente hex, rgb(), hsl() ou oklch().",
-    formats: "formatos", copy: "copiar", copied: "copiado", harmony: "harmonia", scale: "escala de tons",
-    harmonies: { analogous: "análogas", complementary: "complementares", triadic: "tríade", split: "complementar dividida", tetradic: "tétrade" }
-  },
-  backgroundRemover: {
-    upload: "escolher imagem", hint: "selecione a cor do fundo clicando na imagem.",
-    tolerance: "tolerância", softness: "suavidade da borda", reset: "recomeçar",
-    download: "baixar png", empty: "sua imagem aparece aqui", sample: "cor selecionada",
-    note: "remoção por cor: funciona melhor com fundos uniformes."
-  },
-  colorMatrix: {
-    upload: "escolher imagem", target: "cor para substituir", replacement: "nova cor",
-    tolerance: "tolerância", saturation: "saturação", invert: "inverter cores",
-    download: "baixar png", empty: "escolha uma imagem para começar", reset: "restaurar ajustes"
-  },
-  wallpaperStudio: {
-    size: "formato", palette: "paleta", style: "composição", generate: "gerar composição",
-    download: "baixar wallpaper", square: "quadrado", desktop: "desktop", phone: "celular",
-    organic: "orgânica", geometric: "geométrica", minimal: "minimalista"
+    formats: "formatos",
+    copy: "copiar",
+    copied: "copiado",
+    harmony: "harmonia",
+    scale: "escala de tons",
+    harmonies: {
+      analogous: "análogas",
+      complementary: "complementares",
+      triadic: "tríade",
+      split: "complementar dividida",
+      tetradic: "tétrade"
+    }
   },
   tools: {
     halftone: { name: "criador de halftone", description: "transforme imagens em padrões expressivos de pontos." },
