@@ -93,7 +93,7 @@ export default function WallpaperStudio() {
     <div className="grid gap-2 lg:grid-cols-[minmax(0,1.5fr)_minmax(16rem,1fr)]">
       <section className={panel}>
         <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-          <span className="font-mono text-xs text-muted">1920 × 1080 · png</span>
+          <span className="font-mono text-xs text-muted">{size === "desktop" ? "1920 × 1080" : size === "phone" ? "1080 × 1920" : "1200 × 1200"} · png</span>
           <button onClick={download} className="inline-flex items-center gap-2 rounded-xl bg-accent px-3 py-2 font-mono text-xs text-on-accent"><Download size={15} />{t("wallpaperStudio.download")}</button>
         </div>
         <div className="flex min-h-72 items-center justify-center overflow-hidden rounded-xl border border-border bg-surface p-3">
