@@ -2,35 +2,43 @@ export const en = {
   tagline: "a little space for creative work.",
   greeting: "make room for ideas.",
   intro: "a calm collection of small tools for your creative workflow.",
-  allTools: "all tools", workspace: "workspace", pickTool: "pick a tool and make something yours.",
-  toolCount: "{{count}} tools to explore", local: "local-first by design",
+  allTools: "all tools",
+  workspace: "workspace",
+  pickTool: "pick a tool and make something yours.",
+  toolCount: "{{count}} tools to explore",
+  local: "local-first by design",
   localDescription: "your files stay in your browser. nothing is uploaded by default.",
   coming: "this tool is part of the roadmap.",
   comingDescription: "the workspace is being prepared. no functionality is being simulated here.",
-  back: "back to dashboard", menu: "menu", theme: "theme", language: "language",
-  light: "light", dark: "dark", system: "system",
-  category: { image: "image", color: "color", vector: "vector", type: "typography" },
+  back: "back to dashboard",
+  menu: "menu",
+  theme: "theme",
+  language: "language",
+  light: "light",
+  dark: "dark",
+  system: "system",
+  category: {
+    image: "image",
+    color: "color",
+    vector: "vector",
+    type: "typography"
+  },
   colorTools: {
-    pick: "pick a color", input: "color value",
+    pick: "pick a color",
+    input: "color value",
     invalid: "couldn't read that color. try hex, rgb(), hsl() or oklch().",
-    formats: "formats", copy: "copy", copied: "copied", harmony: "harmony", scale: "tone scale",
-    harmonies: { analogous: "analogous", complementary: "complementary", triadic: "triadic", split: "split", tetradic: "tetradic" }
-  },
-  backgroundRemover: {
-    upload: "choose image", hint: "select the background color by clicking the image.",
-    tolerance: "tolerance", softness: "edge softness", reset: "start over",
-    download: "download png", empty: "your image will appear here", sample: "selected color",
-    note: "color-based removal: works best with uniform backgrounds."
-  },
-  colorMatrix: {
-    upload: "choose image", target: "color to replace", replacement: "new color",
-    tolerance: "tolerance", saturation: "saturation", invert: "invert colors",
-    download: "download png", empty: "choose an image to get started", reset: "reset adjustments"
-  },
-  wallpaperStudio: {
-    size: "format", palette: "palette", style: "composition", generate: "generate composition",
-    download: "download wallpaper", square: "square", desktop: "desktop", phone: "phone",
-    organic: "organic", geometric: "geometric", minimal: "minimal"
+    formats: "formats",
+    copy: "copy",
+    copied: "copied",
+    harmony: "harmony",
+    scale: "tone scale",
+    harmonies: {
+      analogous: "analogous",
+      complementary: "complementary",
+      triadic: "triadic",
+      split: "split",
+      tetradic: "tetradic"
+    }
   },
   tools: {
     halftone: { name: "halftone creator", description: "turn images into expressive dot patterns." },
