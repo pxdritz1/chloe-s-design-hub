@@ -26,6 +26,17 @@ jobs:
       - id: pages
         uses: actions/configure-pages@v6
       - run: npm ci
+      - name: fetch PhotoCraft WebAssembly release
+        run: |
+          set -euo pipefail
+          asset_url="$(curl -fsSL https://api.github.com/repos/storytold/photocraft/releases/latest | jq -r '.assets[] | select(.name | startswith("photocraft-web-") and endswith(".zip")) | .browser_download_url' | head -n 1)"
+          test -n "$asset_url"
+          mkdir -p /tmp/photocraft public/photocraft
+          curl -fL "$asset_url" -o /tmp/photocraft-web.zip
+          unzip -q /tmp/photocraft-web.zip -d /tmp/photocraft
+          app_dir="$(find /tmp/photocraft -name index.html -printf '%h\n' -quit)"
+          test -n "$app_dir"
+          cp -a "$app_dir"/. public/photocraft/
       - run: npm run build
         env:
           BASE_PATH: ${{ steps.pages.outputs.base_path }}/
