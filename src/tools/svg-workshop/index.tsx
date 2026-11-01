@@ -14,7 +14,7 @@ function safePreview(source: string) {
     .replace(/<script\b[^>]*>[\s\S]*?<\/script\s*>/gi, "")
     .replace(/<foreignObject\b[^>]*>[\s\S]*?<\/foreignObject\s*>/gi, "")
     .replace(/\s+on[a-z]+\s*=\s*(["']).*?\1/gi, "")
-    .replace(/\s+(href|xlink:href)\s*=\s*(["'])\s*(https?:|javascript:|data:text\/html).*?\2/gi, "");
+    .replace(/\s+(href|xlink:href)\s*=\s*(["'])(?!#).*?\2/gi, "");
 }
 
 export default function SvgWorkshop() {
