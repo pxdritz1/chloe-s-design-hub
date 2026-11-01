@@ -227,6 +227,7 @@ export const en = {
   },
   photocraft: { localTitle: "local editing in your browser", localNote: "PhotoCraft runs as WebAssembly in your browser. your files are not uploaded; the build is fetched directly from the upstream project.", openNew: "open in new tab", frameTitle: "PhotoCraft editor", saveNote: "there is no autosave or crash recovery. export your work before closing or reloading." },
   svg: { source: "SVG source", import: "import SVG", format: "format markup", help: "edit the SVG markup. the preview runs in an isolated frame with scripts disabled.", invalidFile: "choose a valid SVG file.", preview: "preview", previewTitle: "SVG artwork preview", download: "download SVG" },
+  accessibility: { colors: "colors", foreground: "text color", background: "background color", ratio: "contrast", preview: "preview", sampleTitle: "Sample heading", sampleBody: "Comfortable text needs enough contrast to remain readable in different viewing conditions.", sampleButton: "primary action", aaNormal: "normal text AA", aaLarge: "large text AA", aaaNormal: "normal text AAA", aaaLarge: "large text AAA", pass: "pass", fail: "fail", note: "The calculation follows the WCAG contrast formula. Large text means at least 18 pt or 14 pt bold." },
   tools: {
     halftone: { name: "halftone creator", description: "turn images into expressive dot patterns." },
     wallpaper: { name: "wallpaper studio", description: "compose wallpapers with shapes, color and texture." },
