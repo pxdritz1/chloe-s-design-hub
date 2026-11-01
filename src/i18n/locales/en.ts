@@ -12,6 +12,8 @@ export const en = {
   comingDescription: "the workspace is being prepared. no functionality is being simulated here.",
   back: "back to dashboard",
   menu: "menu",
+  skipToContent: "skip to content",
+  mainNavigation: "main navigation",
   sidebar: { discovery: "random discovery", loadingArticle: "finding something interesting…", quote: "quote of the day", daily: "updated daily" },
   theme: "theme",
   language: "language",
@@ -223,6 +225,8 @@ export const en = {
     copyCss: "copy css",
     copied: "copied"
   },
+  photocraft: { localTitle: "local editing in your browser", localNote: "PhotoCraft runs as WebAssembly in your browser. your files are not uploaded; the build is fetched directly from the upstream project.", openNew: "open in new tab", frameTitle: "PhotoCraft editor", saveNote: "there is no autosave or crash recovery. export your work before closing or reloading." },
+  svg: { source: "SVG source", import: "import SVG", format: "format markup", help: "edit the SVG markup. the preview runs in an isolated frame with scripts disabled.", invalidFile: "choose a valid SVG file.", preview: "preview", previewTitle: "SVG artwork preview", download: "download SVG" },
   tools: {
     halftone: { name: "halftone creator", description: "turn images into expressive dot patterns." },
     wallpaper: { name: "wallpaper studio", description: "compose wallpapers with shapes, color and texture." },
