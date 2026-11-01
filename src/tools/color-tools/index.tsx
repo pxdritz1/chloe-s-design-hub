@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Check, Copy } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useCopy } from "../../hooks/useCopy";
 import {
   formatHsl,
   formatOklch,
@@ -18,27 +19,6 @@ import {
 const initialText = "#7b8f76";
 const initialColor: Rgb = { r: 123, g: 143, b: 118 };
 const harmonyKinds = Object.keys(harmonies) as HarmonyKind[];
-
-function useCopy() {
-  const [copied, setCopied] = useState<string | null>(null);
-
-  useEffect(() => {
-    if (!copied) return;
-    const timer = window.setTimeout(() => setCopied(null), 1500);
-    return () => window.clearTimeout(timer);
-  }, [copied]);
-
-  async function copy(value: string) {
-    try {
-      await navigator.clipboard.writeText(value);
-      setCopied(value);
-    } catch {
-      setCopied(null);
-    }
-  }
-
-  return { copied, copy };
-}
 
 interface SwatchesProps {
   colors: Rgb[];
@@ -59,7 +39,7 @@ function Swatches({ colors, copied, onCopy }: SwatchesProps) {
             onClick={() => onCopy(hex)}
             aria-label={`${t("colorTools.copy")} ${hex}`}
             style={{ backgroundColor: hex, color: isLight(color) ? "#1b201b" : "#f3f1ea" }}
-            className="flex h-20 items-end rounded-xl border border-border p-2.5 font-mono text-xs transition-transform hover:-translate-y-0.5"
+            className="flex h-20 items-end rounded-2xl border border-border p-2.5 font-mono text-xs transition-transform hover:-translate-y-0.5"
           >
             {copied === hex ? t("colorTools.copied") : hex}
           </button>
@@ -91,11 +71,9 @@ export default function ColorTools() {
     if (parsed) setColor(parsed);
   }
 
-  const panel = "rounded-2xl border border-border bg-elevated p-5";
-
   return (
     <div className="grid gap-2 lg:grid-cols-2">
-      <section className={panel}>
+      <section className="panel">
         <div className="flex items-center gap-3">
           <input
             type="color"
@@ -121,12 +99,12 @@ export default function ColorTools() {
         )}
         <div className="mt-4 h-32 rounded-xl border border-border" style={{ backgroundColor: hex }} />
       </section>
-      <section className={panel}>
-        <h2 className="mb-3 font-mono text-sm font-semibold">{t("colorTools.formats")}</h2>
+      <section className="panel">
+        <h2 className="mb-3 text-base font-semibold">{t("colorTools.formats")}</h2>
         <ul className="space-y-2">
           {formats.map(([name, value]) => (
             <li key={name} className="flex items-center gap-3 rounded-xl bg-surface px-3 py-2">
-              <span className="w-12 shrink-0 font-mono text-xs text-muted">{name}</span>
+              <span className="w-12 shrink-0 text-xs font-medium text-muted">{name}</span>
               <code className="min-w-0 flex-1 truncate font-mono text-sm">{value}</code>
               <button
                 onClick={() => void copy(value)}
@@ -139,9 +117,9 @@ export default function ColorTools() {
           ))}
         </ul>
       </section>
-      <section className={`${panel} lg:col-span-2`}>
+      <section className="panel lg:col-span-2">
         <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-          <h2 className="font-mono text-sm font-semibold">{t("colorTools.harmony")}</h2>
+          <h2 className="text-base font-semibold">{t("colorTools.harmony")}</h2>
           <div role="radiogroup" aria-label={t("colorTools.harmony")} className="flex flex-wrap gap-1.5">
             {harmonyKinds.map((option) => (
               <button
@@ -149,7 +127,7 @@ export default function ColorTools() {
                 role="radio"
                 aria-checked={kind === option}
                 onClick={() => setKind(option)}
-                className="rounded-lg border border-border px-3 py-1.5 font-mono text-xs text-muted transition-colors hover:text-foreground aria-checked:border-accent aria-checked:bg-surface aria-checked:text-foreground"
+                className="chip"
               >
                 {t(`colorTools.harmonies.${option}`)}
               </button>
@@ -158,8 +136,8 @@ export default function ColorTools() {
         </div>
         <Swatches colors={harmony(color, kind)} copied={copied} onCopy={(value) => void copy(value)} />
       </section>
-      <section className={`${panel} lg:col-span-2`}>
-        <h2 className="mb-4 font-mono text-sm font-semibold">{t("colorTools.scale")}</h2>
+      <section className="panel lg:col-span-2">
+        <h2 className="mb-4 text-base font-semibold">{t("colorTools.scale")}</h2>
         <Swatches colors={toneScale(color)} copied={copied} onCopy={(value) => void copy(value)} />
       </section>
     </div>

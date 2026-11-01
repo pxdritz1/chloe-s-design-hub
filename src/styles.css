@@ -1,8 +1,10 @@
 @import "tailwindcss";
-@import "@fontsource-variable/jetbrains-mono";
+@import "@fontsource-variable/inter";
 
 @theme inline {
-  --font-mono: "JetBrains Mono Variable", "JetBrains Mono", "RecMono Linear", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-sans: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Inter Variable", Inter, system-ui, sans-serif;
+  --font-display: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Inter Variable", Inter, system-ui, sans-serif;
+  --font-mono: "SF Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   --color-background: var(--background);
   --color-surface: var(--surface);
   --color-elevated: var(--elevated);
@@ -19,56 +21,56 @@
   --color-sand: var(--sand);
   --color-sand-soft: var(--sand-soft);
   --color-sand-ink: var(--sand-ink);
+  --shadow-soft: 0 1px 2px rgb(29 27 32 / 0.04), 0 8px 24px -18px rgb(29 27 32 / 0.2);
+  --shadow-lift: 0 4px 16px -10px rgb(29 27 32 / 0.22);
 }
 
 :root {
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--font-sans);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color-scheme: light;
-  --background: #ebe9e0;
-  --surface: #f3f1ea;
-  --elevated: #faf9f5;
-  --foreground: #2f352f;
-  --muted: #626959;
-  --border: #dcdbd0;
-  --accent: #7b8f76;
-  --on-accent: #fbfaf6;
-  --sage-soft: #e2e8dd;
-  --clay: #b87962;
-  --clay-soft: #f0e2dc;
-  --lavender: #8d83a8;
-  --lavender-soft: #eae6f0;
-  --sand: #b18c54;
-  --sand-soft: #f1eadc;
-  --sand-ink: #80643b;
+  --background: #f7f2fa;
+  --surface: #f3edf7;
+  --elevated: #fffbfe;
+  --foreground: #1d1b20;
+  --muted: #625d67;
+  --border: #e6e0e9;
+  --accent: #6750a4;
+  --on-accent: #ffffff;
+  --sage-soft: #eaddff;
+  --clay: #8c4a60;
+  --clay-soft: #ffdadf;
+  --lavender: #625b71;
+  --lavender-soft: #e8def8;
+  --sand: #80601f;
+  --sand-soft: #f3e1b8;
+  --sand-ink: #5e4510;
 }
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --background: #131713;
-  --surface: #1b201b;
-  --elevated: #242b25;
-  --foreground: #e6e9e0;
-  --muted: #a3ab9f;
-  --border: #2f372f;
-  --accent: #a4b69b;
-  --on-accent: #131713;
-  --sage-soft: #2d382d;
-  --clay: #d49a82;
-  --clay-soft: #46332d;
-  --lavender: #b3a8cf;
-  --lavender-soft: #393345;
-  --sand: #d3b47c;
-  --sand-soft: #423a2b;
-  --sand-ink: #e0c28d;
+  --background: #141218;
+  --surface: #1d1b20;
+  --elevated: #2b2930;
+  --foreground: #e6e1e9;
+  --muted: #cac4d0;
+  --border: #49454f;
+  --accent: #d0bcff;
+  --on-accent: #381e72;
+  --sage-soft: #4f378b;
+  --clay: #ffb1c0;
+  --clay-soft: #633b46;
+  --lavender: #d0c4e8;
+  --lavender-soft: #494257;
+  --sand: #e8c98b;
+  --sand-soft: #4e432d;
+  --sand-ink: #f2d9a6;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 html {
   min-width: 320px;
@@ -80,12 +82,11 @@ body {
   min-width: 320px;
   min-height: 100vh;
   margin: 0;
+  background: var(--background);
 }
 
-button,
-select {
-  font: inherit;
-}
+h1, h2 { font-family: var(--font-display); }
+button, select { font: inherit; }
 
 ::selection {
   color: var(--on-accent);
@@ -97,19 +98,37 @@ select {
   outline-offset: 3px;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: auto !important;
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
+.surface-panel {
+  border: 1px solid var(--border);
+  background: var(--elevated);
+  box-shadow: var(--shadow-soft);
+}
+
+.panel {
+  @apply rounded-3xl border border-border bg-elevated p-5 sm:p-6;
+}
+
+.chip {
+  @apply rounded-full border border-border bg-elevated px-3.5 py-1.5 text-xs font-medium text-muted transition-colors hover:text-foreground aria-checked:border-accent aria-checked:bg-sage-soft aria-checked:text-foreground;
 }
 
 .checker {
   background-color: var(--surface);
   background-image: conic-gradient(var(--border) 25%, transparent 0 50%, var(--border) 0 75%, transparent 0);
   background-size: 16px 16px;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(8px); }
+}
+
+.rise { animation: rise 0.4s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

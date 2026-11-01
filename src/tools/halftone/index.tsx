@@ -1,6 +1,7 @@
-import { useCallback, useEffect, useMemo, useRef, useState, type DragEvent, type ReactNode } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type DragEvent } from "react";
 import { Download, ImagePlus } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { Field } from "../../components/Field";
 import { toLuma, type HalftoneParams, type Shape } from "./halftone";
 import { useHalftoneWorker } from "./useHalftoneWorker";
 
@@ -51,18 +52,6 @@ async function decode(file: File) {
   ctx.drawImage(bitmap, 0, 0, width, height);
   bitmap.close();
   return { width, height, luma: toLuma(ctx.getImageData(0, 0, width, height).data), scaled: scale < 1 };
-}
-
-function Field({ label, value, children }: { label: string; value?: string; children: ReactNode }) {
-  return (
-    <label className="block">
-      <span className="mb-1.5 flex items-center justify-between font-mono text-xs text-muted">
-        {label}
-        {value && <span className="text-foreground">{value}</span>}
-      </span>
-      {children}
-    </label>
-  );
 }
 
 export default function Halftone() {
@@ -149,14 +138,13 @@ export default function Halftone() {
     }, "image/png");
   }
 
-  const panel = "rounded-2xl border border-border bg-elevated p-5";
-  const inputClass = "h-9 w-full cursor-pointer rounded-lg border border-border bg-transparent p-0.5";
+    const inputClass = "h-9 w-full cursor-pointer rounded-lg border border-border bg-transparent p-0.5";
 
   return (
     <div className="grid gap-2 lg:grid-cols-[20rem_minmax(0,1fr)]">
-      <section className={`${panel} space-y-5`}>
-        <h2 className="font-mono text-sm font-semibold">{t("halftone.settings")}</h2>
-        <fieldset disabled={!loaded} className="m-0 min-w-0 space-y-4 border-0 p-0 disabled:opacity-50">
+      <section className={`panel space-y-5`}>
+        <h2 className="text-sm font-semibold">{t("halftone.settings")}</h2>
+        <fieldset disabled={!loaded} className="min-w-0 space-y-4 border-0 p-0 disabled:opacity-50">
           <Field label={t("halftone.size")} value={`${settings.size}px`}>
             <input type="range" min={3} max={40} step={1} value={settings.size} onChange={(event) => patch({ size: Number(event.target.value) })} className="w-full accent-accent" />
           </Field>
@@ -173,7 +161,7 @@ export default function Halftone() {
                 role="radio"
                 aria-checked={settings.shape === shape}
                 onClick={() => patch({ shape })}
-                className="rounded-lg border border-border px-3 py-1.5 font-mono text-xs text-muted transition-colors hover:text-foreground aria-checked:border-accent aria-checked:bg-surface aria-checked:text-foreground"
+                className="chip"
               >
                 {t(`halftone.shapes.${shape}`)}
               </button>
@@ -187,18 +175,18 @@ export default function Halftone() {
               <input type="color" value={settings.paper} disabled={settings.transparent} onChange={(event) => patch({ paper: event.target.value })} className={`${inputClass} disabled:opacity-40`} />
             </Field>
           </div>
-          <label className="flex items-center gap-2 font-mono text-xs">
+          <label className="flex items-center gap-2 text-xs">
             <input type="checkbox" checked={settings.transparent} onChange={(event) => patch({ transparent: event.target.checked })} className="size-4 accent-accent" />
             {t("halftone.transparent")}
           </label>
-          <label className="flex items-center gap-2 font-mono text-xs">
+          <label className="flex items-center gap-2 text-xs">
             <input type="checkbox" checked={settings.invert} onChange={(event) => patch({ invert: event.target.checked })} className="size-4 accent-accent" />
             {t("halftone.invert")}
           </label>
         </fieldset>
         <div className="space-y-2">
           {loaded && (
-            <label className="flex h-10 cursor-pointer items-center justify-center gap-2 rounded-xl border border-border bg-surface font-mono text-xs transition-colors hover:border-accent has-focus-visible:outline-2 has-focus-visible:outline-accent">
+            <label className="flex h-10 cursor-pointer items-center justify-center gap-2 rounded-xl border border-border bg-surface text-xs transition-colors hover:border-accent has-focus-visible:outline-2 has-focus-visible:outline-accent">
               <ImagePlus size={15} />
               {t("halftone.another")}
               <input
@@ -216,14 +204,14 @@ export default function Halftone() {
           <button
             onClick={download}
             disabled={!loaded || status !== "ready"}
-            className="flex h-10 w-full items-center justify-center gap-2 rounded-xl bg-accent font-mono text-xs font-semibold text-on-accent transition-opacity disabled:opacity-40"
+            className="flex h-10 w-full items-center justify-center gap-2 rounded-xl bg-accent text-xs font-semibold text-on-accent transition-opacity disabled:opacity-40"
           >
             <Download size={15} />
             {t("halftone.download")}
           </button>
         </div>
       </section>
-      <section className={`${panel} min-h-[24rem]`}>
+      <section className={`panel min-h-[24rem]`}>
         {!loaded && (
           <label
             onDragOver={(event) => {
@@ -235,7 +223,7 @@ export default function Halftone() {
             className={`flex h-full min-h-[20rem] cursor-pointer flex-col items-center justify-center gap-3 rounded-xl border border-dashed p-6 text-center transition-colors has-focus-visible:outline-2 has-focus-visible:outline-accent ${dragging ? "border-accent bg-surface" : "border-border"}`}
           >
             <ImagePlus size={28} className="text-muted" />
-            <span className="font-mono text-sm font-semibold">{status === "loading" ? t("halftone.loading") : t("halftone.choose")}</span>
+            <span className="text-sm font-semibold">{status === "loading" ? t("halftone.loading") : t("halftone.choose")}</span>
             <span className="text-sm text-muted">{t("halftone.drop")}</span>
             <span className="max-w-xs text-xs text-muted">{t("halftone.hint")}</span>
             <input

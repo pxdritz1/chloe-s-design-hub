@@ -9,16 +9,16 @@ export function BrandMark({ avatar }: { avatar: string | null }) {
       <img
         src={avatar}
         alt=""
-        width={36}
-        height={36}
+        width={44}
+        height={44}
         onError={() => setFailed(true)}
-        className="size-9 rounded-xl object-cover"
+        className="size-11 rounded-full object-cover ring-2 ring-border"
       />
     );
   }
 
   return (
-    <span className="flex size-9 items-center justify-center rounded-xl bg-accent text-on-accent">
+    <span className="flex size-11 items-center justify-center rounded-full bg-accent text-on-accent">
       <Palette size={18} />
     </span>
   );

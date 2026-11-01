@@ -16,8 +16,8 @@ export default function ToolPage() {
   if (!tool) {
     return (
       <div className="py-20 text-center">
-        <h1 className="font-mono text-2xl font-semibold">404</h1>
-        <Link to="/dashboard" className="mt-4 inline-flex items-center gap-2 font-mono text-sm underline underline-offset-4">
+        <h1 className="text-2xl font-semibold">404</h1>
+        <Link to="/dashboard" className="mt-4 inline-flex items-center gap-2 text-sm underline underline-offset-4">
           <ArrowLeft size={15} />
           {t("back")}
         </Link>
@@ -29,18 +29,18 @@ export default function ToolPage() {
   const Content = toolComponents.get(tool.id);
 
   return (
-    <div className="space-y-8">
-      <Link to="/dashboard" className="inline-flex items-center gap-2 font-mono text-sm text-muted hover:text-foreground">
+    <div className="rise space-y-8">
+      <Link to="/dashboard" className="inline-flex items-center gap-2 text-sm font-medium text-muted transition-colors hover:text-foreground">
         <ArrowLeft size={15} />
         {t("back")}
       </Link>
-      <header className="flex items-start gap-4">
-        <span className={`flex size-12 shrink-0 items-center justify-center rounded-2xl ${toneClasses[tool.tone]}`}>
+      <header className="flex items-start gap-5">
+        <span className={`flex size-14 shrink-0 items-center justify-center rounded-3xl ${toneClasses[tool.tone]}`}>
           <Icon size={24} strokeWidth={1.7} />
         </span>
         <div>
-          <p className="font-mono text-xs text-muted">{t(`category.${tool.category}`)}</p>
-          <h1 className="mt-1 font-mono text-3xl font-semibold tracking-tight">{t(`tools.${tool.key}.name`)}</h1>
+          <p className="inline-block rounded-full border border-border bg-elevated px-2.5 py-0.5 text-[11px] font-medium text-muted">{t(`category.${tool.category}`)}</p>
+          <h1 className="mt-2 text-4xl font-semibold tracking-[-0.03em]">{t(`tools.${tool.key}.name`)}</h1>
           <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted">{t(`tools.${tool.key}.description`)}</p>
         </div>
       </header>
@@ -49,10 +49,10 @@ export default function ToolPage() {
           <Content />
         </Suspense>
       ) : (
-        <div className="flex max-w-2xl gap-3 rounded-2xl border border-border bg-elevated p-4">
+        <div className="panel flex max-w-2xl gap-3">
           <Hourglass size={18} className="mt-0.5 shrink-0 text-muted" />
           <div>
-            <p className="font-mono text-sm font-medium">{t("coming")}</p>
+            <p className="text-sm font-medium">{t("coming")}</p>
             <p className="mt-1 text-sm leading-relaxed text-muted">{t("comingDescription")}</p>
           </div>
         </div>
