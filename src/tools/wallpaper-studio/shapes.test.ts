@@ -24,10 +24,11 @@ function area(points: [number, number][]) {
 }
 
 describe("shape library", () => {
-  it("has 26 shapes split between basic and material", () => {
-    expect(shapeDefs).toHaveLength(26);
-    expect(new Set(shapeIds).size).toBe(26);
+  it("has a balanced library of basic, material and expressive shapes", () => {
+    expect(shapeDefs).toHaveLength(36);
+    expect(new Set(shapeIds).size).toBe(36);
     expect(shapeDefs.filter((shape) => shape.group === "material")).toHaveLength(13);
+    expect(shapeDefs.filter((shape) => shape.group === "expressive")).toHaveLength(10);
   });
 
   it.each(shapeDefs.map((shape) => shape.id))("keeps %s finite, smooth enough and inside the unit box", (id) => {
