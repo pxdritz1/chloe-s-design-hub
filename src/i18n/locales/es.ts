@@ -227,18 +227,18 @@ export const es: Translation = {
     copyCss: "copiar css",
     copied: "copiado"
   },
-  photocraft: { localTitle: "edición local en el navegador", localNote: "PhotoCraft se ejecuta como WebAssembly en tu navegador. tus archivos no se suben; la compilación se obtiene del proyecto original.", openNew: "abrir en una pestaña nueva", frameTitle: "editor PhotoCraft", saveNote: "no hay guardado automático ni recuperación de fallos. exporta tu trabajo antes de cerrar o recargar." },
-  svg: { source: "código SVG", import: "importar SVG", format: "ordenar código", help: "edita el marcado SVG. la vista previa se ejecuta en un marco aislado y los scripts están desactivados.", invalidFile: "selecciona un archivo SVG válido.", preview: "vista previa", previewTitle: "vista previa del gráfico SVG", download: "descargar SVG" },
-  accessibility: { colors: "colores", foreground: "color del texto", background: "color de fondo", ratio: "contraste", preview: "vista previa", sampleTitle: "ejemplo de título", sampleBody: "un texto cómodo necesita suficiente contraste para seguir siendo legible en distintas condiciones visuales.", sampleButton: "acción principal", aaNormal: "contraste normal AA", aaLarge: "texto grande AA", aaaNormal: "contraste normal AAA", aaaLarge: "texto grande AAA", pass: "aprobado", fail: "no aprobado", note: "el cálculo sigue la fórmula de contraste WCAG. texto grande significa al menos 18 pt o 14 pt en negrita." },
+  photocraft: { localTitle: "edición local en el navegador", localNote: "photocraft se ejecuta como webassembly en tu navegador. tus archivos no se suben; la compilación se obtiene del proyecto original.", openNew: "abrir en una pestaña nueva", frameTitle: "editor photocraft", saveNote: "no hay guardado automático ni recuperación de fallos. exporta tu trabajo antes de cerrar o recargar." },
+  svg: { source: "código svg", import: "importar svg", format: "ordenar código", help: "edita el marcado svg. la vista previa se ejecuta en un marco aislado y los scripts están desactivados.", invalidFile: "selecciona un archivo svg válido.", preview: "vista previa", previewTitle: "vista previa del gráfico svg", download: "descargar svg" },
+  accessibility: { colors: "colores", foreground: "color del texto", background: "color de fondo", ratio: "contraste", preview: "vista previa", sampleTitle: "ejemplo de título", sampleBody: "un texto cómodo necesita suficiente contraste para seguir siendo legible en distintas condiciones visuales.", sampleButton: "acción principal", aaNormal: "contraste normal aa", aaLarge: "texto grande aa", aaaNormal: "contraste normal aaa", aaaLarge: "texto grande aaa", pass: "aprobado", fail: "no aprobado", note: "el cálculo sigue la fórmula de contraste wcag. texto grande significa al menos 18 pt o 14 pt en negrita." },
   tools: {
     halftone: { name: "creador de semitonos", description: "convierte imágenes en patrones expresivos de puntos." },
     wallpaper: { name: "estudio de fondos", description: "compón fondos con formas, color y textura." },
-    photocraft: { name: "photocraft", description: "un editor de imágenes completo en WebAssembly, directamente en el navegador." },
+    photocraft: { name: "photocraft", description: "un editor de imágenes completo en webassembly, directamente en el navegador." },
     background: { name: "quitar fondo", description: "prepara recortes con procesamiento local." },
     converters: { name: "conversores de formato", description: "convierte imágenes entre png, jpg y webp y transforma vídeo en gif." },
     colors: { name: "herramientas de color", description: "explora, convierte y crea paletas." },
     colorMatrix: { name: "matriz de color", description: "cambia colores exactos, invierte canales y ajusta la saturación." },
-    accessibility: { name: "contraste y visión", description: "comprueba el contraste de color según los criterios WCAG." },
+    accessibility: { name: "contraste y visión", description: "comprueba el contraste de color según los criterios wcag." },
     svg: { name: "taller svg", description: "crea, inspecciona y optimiza gráficos vectoriales." },
     typography: { name: "estudio tipográfico", description: "compara fuentes, crea escalas y prueba combinaciones." }
   }
