@@ -37,6 +37,23 @@ jobs:
           app_dir="$(find /tmp/photocraft -name index.html -printf '%h\n' -quit)"
           test -n "$app_dir"
           cp -a "$app_dir"/. public/photocraft/
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          root = Path("public/photocraft")
+          for path in root.rglob("*"):
+              if not path.is_file() or path.suffix.lower() not in {".html", ".js", ".css", ".json", ".webmanifest"}:
+                  continue
+              try:
+                  content = path.read_text(encoding="utf-8")
+              except UnicodeDecodeError:
+                  continue
+              content = re.sub(r'(["\'(=])/(assets|static|wasm)/', r'\1./\2/', content)
+              content = content.replace('<base href="/">', '<base href="./">')
+              path.write_text(content, encoding="utf-8")
+          PY
+          test -s public/photocraft/index.html
       - run: npm run build
         env:
           BASE_PATH: ${{ steps.pages.outputs.base_path }}/
