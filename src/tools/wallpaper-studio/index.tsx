@@ -270,8 +270,8 @@ export default function WallpaperStudio() {
             </div>
           </div>
         )}
-        <Field label={t("wallpaper.complexity")} value={style === "plain" ? "—" : `${count}`}>
-          <input type="range" min={2} max={14} value={count} disabled={style === "plain"} onChange={(event) => setCount(Number(event.target.value))} className="w-full accent-accent disabled:opacity-40" />
+        <Field label={t("wallpaper.complexity")} value={`${count}`}>
+          <input type="range" min={2} max={14} value={count} onChange={(event) => setCount(Number(event.target.value))} className="w-full accent-accent disabled:opacity-40" />
         </Field>
         <Field label={t("wallpaper.grain")} value={`${grain}%`}>
           <input type="range" min={0} max={100} value={grain} onChange={(event) => setGrain(Number(event.target.value))} className="w-full accent-accent" />
