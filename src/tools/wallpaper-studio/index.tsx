@@ -5,14 +5,14 @@ import { Field } from "../../components/Field";
 import { downloadCanvas } from "../../lib/image";
 import { harmonies, parseColor, type HarmonyKind } from "../color-tools/color";
 import { drawScene } from "./draw";
-import { buildScene, sizes, styles, type Mode, type PaletteKind, type SizeId, type Style } from "./scene";
+import { buildScene, patterns, sizes, styles, type Mode, type PaletteKind, type Pattern, type SizeId, type Style } from "./scene";
 import { hitLayer, pathData, scatterLayers, shapeById, shapeDefs, type Layer, type Point, type ShapeId } from "./shapes";
 
 const harmonyKinds = Object.keys(harmonies) as HarmonyKind[];
 const modes: Mode[] = ["light", "dark"];
 const paletteKinds: PaletteKind[] = ["harmony", "material"];
 const previewSide = 1100;
-const groups = ["basic", "material"] as const;
+const groups = ["basic", "material", "expressive"] as const;
 
 type Drag =
   | { kind: "move"; start: Point; origin: Layer }
@@ -30,6 +30,7 @@ export default function WallpaperStudio() {
   const dragRef = useRef<Drag | null>(null);
   const [sizeId, setSizeId] = useState<SizeId>("desktop");
   const [style, setStyle] = useState<Style>("mesh");
+  const [pattern, setPattern] = useState<Pattern>("contours");
   const [mode, setMode] = useState<Mode>("light");
   const [paletteKind, setPaletteKind] = useState<PaletteKind>("harmony");
   const [baseHex, setBaseHex] = useState("#5c775a");
@@ -45,8 +46,8 @@ export default function WallpaperStudio() {
   const big = Math.max(size.width, size.height);
   const scene = useMemo(() => {
     const base = parseColor(baseHex) ?? { r: 92, g: 119, b: 90 };
-    return buildScene({ seed, style, base, harmony, paletteKind, mode, count });
-  }, [seed, style, baseHex, harmony, paletteKind, mode, count]);
+    return buildScene({ seed, style, base, harmony, paletteKind, pattern, mode, count });
+  }, [seed, style, baseHex, harmony, paletteKind, pattern, mode, count]);
   const selected = layers.find((layer) => layer.id === selectedId) ?? null;
 
   useEffect(() => {
@@ -220,6 +221,16 @@ export default function WallpaperStudio() {
             {styles.map((option) => (
               <button key={option} role="radio" aria-checked={style === option} onClick={() => setStyle(option)} className="chip">
                 {t(`wallpaper.styles.${option}`)}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className="space-y-2">
+          <span className="text-xs font-medium text-muted">{t("wallpaper.pattern")}</span>
+          <div role="radiogroup" aria-label={t("wallpaper.pattern")} className="flex flex-wrap gap-1.5">
+            {patterns.map((option) => (
+              <button key={option} role="radio" aria-checked={pattern === option} onClick={() => setPattern(option)} className="chip">
+                {t(`wallpaper.patterns.${option}`)}
               </button>
             ))}
           </div>
