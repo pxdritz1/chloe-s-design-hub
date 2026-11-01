@@ -65,9 +65,6 @@ export function Shell() {
           </span>
         </Link>
 
-        <div className="mb-2 mt-7 px-4 text-[11px] font-semibold uppercase tracking-[0.12em] text-muted">{t("workspace")}</div>
-        <nav className="space-y-1">{navLinks()}</nav>
-
         <div className="mt-auto shrink-0">
           <SidebarInsights />
         </div>
