@@ -28,11 +28,21 @@ export const shapeIds = [
   "clover8",
   "flower",
   "puffy",
-  "gem"
+  "gem",
+  "cross",
+  "plus",
+  "chevron",
+  "teardrop",
+  "leaf",
+  "crescent",
+  "sparkle",
+  "gear",
+  "flower8",
+  "petal"
 ] as const;
 
 export type ShapeId = (typeof shapeIds)[number];
-export type ShapeGroup = "basic" | "material";
+export type ShapeGroup = "basic" | "material" | "expressive";
 
 export interface ShapeDef {
   id: ShapeId;
@@ -185,7 +195,17 @@ const builders: Record<ShapeId, [ShapeGroup, () => Point[]]> = {
   clover8: ["material", () => polar(300, (t) => 0.76 + 0.24 * Math.cos(8 * t))],
   flower: ["material", () => polar(300, (t) => 0.55 + 0.45 * Math.abs(Math.cos(3 * t)) ** 0.85)],
   puffy: ["material", () => polar(300, (t) => 0.72 + 0.28 * Math.abs(Math.cos(2.5 * t)))],
-  gem: ["material", () => fillet([[0, -1], [0.95, -0.35], [0.6, 0.85], [-0.6, 0.85], [-0.95, -0.35]], 0.18)]
+  gem: ["material", () => fillet([[0, -1], [0.95, -0.35], [0.6, 0.85], [-0.6, 0.85], [-0.95, -0.35]], 0.18)],
+  cross: ["expressive", () => fillet([[-0.32, -1], [0.32, -1], [0.32, -0.32], [1, -0.32], [1, 0.32], [0.32, 0.32], [0.32, 1], [-0.32, 1], [-0.32, 0.32], [-1, 0.32], [-1, -0.32], [-0.32, -0.32]], 0.08)],
+  plus: ["expressive", () => fillet([[-0.28, -1], [0.28, -1], [0.28, -0.28], [1, -0.28], [1, 0.28], [0.28, 0.28], [0.28, 1], [-0.28, 1], [-0.28, 0.28], [-1, 0.28], [-1, -0.28], [-0.28, -0.28]], 0.02)],
+  chevron: ["expressive", () => fillet([[-1, -0.62], [-0.68, -1], [0, -0.32], [0.68, -1], [1, -0.62], [0, 0.42]], 0.08)],
+  teardrop: ["expressive", () => polar(180, (t) => 0.55 + 0.45 * Math.cos(t))],
+  leaf: ["expressive", () => polar(200, (t) => 0.2 + 0.8 * Math.abs(Math.cos(t)))],
+  crescent: ["expressive", () => fillet([...arcTop(48), ...Array.from({ length: 48 }, (_, index): Point => { const angle = Math.PI + (index / 47) * Math.PI; return [0.42 + 0.58 * Math.cos(angle), -0.58 * Math.sin(angle)]; })], 0.015)],
+  sparkle: ["expressive", () => fillet(star(4, 0.12), starRadii(4, 0.04, 0.02))],
+  gear: ["expressive", () => polar(240, (t) => 0.84 + 0.16 * Math.cos(12 * t))],
+  flower8: ["expressive", () => polar(280, (t) => 0.58 + 0.42 * Math.abs(Math.cos(4 * t)) ** 0.8)],
+  petal: ["expressive", () => polar(240, (t) => 0.42 + 0.58 * Math.abs(Math.cos(t)) ** 0.75)]
 };
 
 export const shapeDefs: ShapeDef[] = shapeIds.map((id) => {
