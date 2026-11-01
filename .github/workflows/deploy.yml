@@ -23,20 +23,40 @@ jobs:
         with:
           node-version: 22
           cache: npm
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+      - uses: Swatinem/rust-cache@v2
       - id: pages
         uses: actions/configure-pages@v6
       - run: npm ci
-      - name: fetch PhotoCraft WebAssembly release
+      - name: fetch PhotoCraft WebAssembly release and its missing snippets
         run: |
           set -euo pipefail
-          asset_url="$(curl -fsSL https://api.github.com/repos/storytold/photocraft/releases/latest | jq -r '.assets[] | select(.name | startswith("photocraft-web-") and endswith(".zip")) | .browser_download_url' | head -n 1)"
+          release_json="$(curl -fsSL https://api.github.com/repos/storytold/photocraft/releases/latest)"
+          tag_name="$(jq -r '.tag_name' <<< "$release_json")"
+          asset_url="$(jq -r '.assets[] | select(.name | startswith("photocraft-web-") and endswith(".zip")) | .browser_download_url' <<< "$release_json" | head -n 1)"
+          test -n "$tag_name"
           test -n "$asset_url"
+
           mkdir -p /tmp/photocraft public/photocraft
           curl -fL "$asset_url" -o /tmp/photocraft-web.zip
           unzip -q /tmp/photocraft-web.zip -d /tmp/photocraft
           app_dir="$(find /tmp/photocraft -name index.html -printf '%h\n' -quit)"
           test -n "$app_dir"
           cp -a "$app_dir"/. public/photocraft/
+
+          # The upstream release ZIP omits wasm-bindgen's generated eframe snippets.
+          # Build the matching app tag to restore those files without rebuilding its WASM.
+          git clone --depth 1 --branch "$tag_name" https://github.com/storytold/photocraft.git /tmp/photocraft-source
+          cargo install trunk --locked
+          (cd /tmp/photocraft-source/apps/photocraft-web && trunk build --release)
+          snippets_dir="/tmp/photocraft-source/dist/web/snippets"
+          test -d "$snippets_dir"
+          mkdir -p public/photocraft/app/snippets
+          cp -a "$snippets_dir"/. public/photocraft/app/snippets/
+          test -n "$(find public/photocraft/app/snippets -type f -name 'inline0.js' -print -quit)"
+
           python3 - <<'PY'
           from pathlib import Path
           import re
