@@ -55,7 +55,7 @@ export function Shell() {
   });
 
   return (
-    <div className="min-h-screen p-3 text-foreground md:flex md:gap-4 md:p-4">
+    <div className="min-h-screen p-3 text-foreground md:flex md:gap-4 md:p-4">\n      <a href="#main-content" className="sr-only z-50 rounded-full bg-accent px-4 py-3 font-semibold text-on-accent focus:not-sr-only focus:fixed focus:left-4 focus:top-4">{t("skipToContent")}</a>
       <aside className="surface-panel sticky top-4 hidden h-[calc(100vh-2rem)] min-h-0 w-[18rem] shrink-0 flex-col overflow-y-auto overscroll-contain rounded-[1.75rem] p-3 md:flex">
         <Link to="/dashboard" className="flex items-center gap-3 rounded-2xl px-3 py-4">
           <BrandMark avatar={avatar} />
@@ -108,14 +108,14 @@ export function Shell() {
 
         {menuOpen && (
           <div className="surface-panel rounded-[1.75rem] p-3 md:hidden">
-            <nav className="space-y-1">{navLinks(true)}</nav>
+            <nav aria-label={t("mainNavigation")} className="space-y-1">{navLinks(true)}</nav>
             <div className="mt-3 border-t border-border pt-3">
               <SidebarInsights />
             </div>
           </div>
         )}
 
-        <main className="surface-panel min-h-[calc(100vh-6rem)] flex-1 rounded-[1.75rem] px-5 py-7 sm:px-8 sm:py-9 lg:px-10">
+        <main id="main-content" tabIndex={-1} className="surface-panel min-h-[calc(100vh-6rem)] flex-1 rounded-[1.75rem] px-5 py-7 outline-none sm:px-8 sm:py-9 lg:px-10">
           <div className="mx-auto w-full max-w-[1320px]">
             <Suspense fallback={<div className="py-20" aria-busy="true" />}>
               <Outlet />
