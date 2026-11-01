@@ -1,6 +1,6 @@
 import { useId, useState } from "react";
 import { Palette } from "lucide-react";
-import { pathData, shapeById } from "@/tools/wallpaper-studio/shapes";
+import { pathData, shapeById } from "../../tools/wallpaper-studio/shapes";
 
 export function BrandMark({ avatar }: { avatar: string | null }) {
   const [failed, setFailed] = useState(false);
