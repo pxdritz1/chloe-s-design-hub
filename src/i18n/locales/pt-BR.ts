@@ -14,6 +14,8 @@ export const ptBR: Translation = {
   comingDescription: "o espaço de trabalho está sendo preparado. nenhuma funcionalidade está sendo simulada.",
   back: "voltar ao início",
   menu: "menu",
+  skipToContent: "pular para o conteúdo",
+  mainNavigation: "navegação principal",
   sidebar: { discovery: "descoberta aleatória", loadingArticle: "procurando algo interessante…", quote: "frase do dia", daily: "atualizada diariamente" },
   theme: "tema",
   language: "idioma",
@@ -225,6 +227,8 @@ export const ptBR: Translation = {
     copyCss: "copiar css",
     copied: "copiado"
   },
+  photocraft: { localTitle: "edição local no navegador", localNote: "o PhotoCraft roda como WebAssembly no seu navegador. seus arquivos não são enviados; a build é obtida diretamente do projeto original.", openNew: "abrir em nova aba", frameTitle: "editor PhotoCraft", saveNote: "não há salvamento automático nem recuperação de falhas. exporte seu trabalho antes de fechar ou recarregar." },
+  svg: { source: "código SVG", import: "importar SVG", format: "organizar código", help: "edite o markup SVG. a prévia roda em um frame isolado e scripts são desativados.", invalidFile: "selecione um arquivo SVG válido.", preview: "prévia", previewTitle: "prévia do gráfico SVG", download: "baixar SVG" },
   tools: {
     halftone: { name: "criador de halftone", description: "transforme imagens em padrões expressivos de pontos." },
     wallpaper: { name: "estúdio de wallpapers", description: "crie wallpapers com formas, cores e texturas." },
