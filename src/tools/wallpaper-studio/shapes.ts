@@ -179,7 +179,7 @@ const builders: Record<ShapeId, [ShapeGroup, () => Point[]]> = {
   pentagon: ["basic", () => fillet(regular(5), 0.22)],
   hexagon: ["basic", () => fillet(regular(6), 0.2)],
   arch: ["basic", () => fillet([[-1, 1], [1, 1], ...arcTop(28)], [0.14, 0.14, ...new Array<number>(29).fill(0)])],
-  semicircle: ["basic", () => fillet([...arcTop(36), [-1, 0]].slice(0, -1).concat([[-1, 0]]), [0.08, ...new Array<number>(35).fill(0), 0.08])],
+  semicircle: ["basic", () => fillet(arcTop(36), 0.08)],
   heart: ["basic", heart],
   star: ["basic", () => fillet(star(5, 0.45), starRadii(5, 0.1, 0.05))],
   slanted: ["basic", () => fillet([[-1, -0.55], [0.55, -0.55], [1, 0.55], [-0.55, 0.55]], 0.22)],
