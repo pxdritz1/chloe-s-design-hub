@@ -1,24 +1,46 @@
-import { useState } from "react";
-import { Cookie, Palette } from "lucide-react";
+import { useId, useState } from "react";
+import { Palette } from "lucide-react";
+import { pathData, shapeById } from "@/tools/wallpaper-studio/shapes";
 
 export function BrandMark({ avatar }: { avatar: string | null }) {
   const [failed, setFailed] = useState(false);
+  const clipId = useId().replace(/:/g, "");
+  const cookie = shapeById("cookie9").points.map(([x, y]) => [
+    50 + x * 47,
+    50 + y * 47
+  ] as [number, number]);
+  const cookiePath = pathData(cookie);
 
   if (avatar && !failed) {
     return (
-      <span className="relative block size-11 shrink-0">
-        <img
-          src={avatar}
-          alt=""
-          width={44}
-          height={44}
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 100 100"
+        className="size-11 shrink-0 overflow-visible"
+      >
+        <defs>
+          <clipPath id={clipId}>
+            <path d={cookiePath} />
+          </clipPath>
+        </defs>
+        <image
+          href={avatar}
+          x="0"
+          y="0"
+          width="100"
+          height="100"
+          preserveAspectRatio="xMidYMid slice"
+          clipPath={`url(#${clipId})`}
           onError={() => setFailed(true)}
-          className="size-11 rounded-full object-cover ring-2 ring-border"
         />
-        <span aria-hidden="true" className="absolute -bottom-1 -right-1 flex size-5 items-center justify-center rounded-full border-2 border-elevated bg-accent text-on-accent shadow-sm">
-          <Cookie size={12} strokeWidth={2} />
-        </span>
-      </span>
+        <path
+          d={cookiePath}
+          fill="none"
+          stroke="var(--color-border)"
+          strokeWidth="4"
+          vectorEffect="non-scaling-stroke"
+        />
+      </svg>
     );
   }
 
