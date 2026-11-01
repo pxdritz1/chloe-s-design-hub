@@ -33,7 +33,7 @@ export const tools: readonly Tool[] = [
   { id: "converters", key: "converters", category: "image", icon: Repeat, tone: "clay", load: () => import("../tools/converters") },
   { id: "color-tools", key: "colors", category: "color", icon: Palette, tone: "sage", load: () => import("../tools/color-tools") },
   { id: "color-matrix", key: "colorMatrix", category: "color", icon: SlidersHorizontal, tone: "sand", load: () => import("../tools/color-matrix") },
-  { id: "accessibility", key: "accessibility", category: "color", icon: ShieldCheck, tone: "clay" },
+  { id: "accessibility", key: "accessibility", category: "color", icon: ShieldCheck, tone: "clay", load: () => import("../tools/accessibility") },
   { id: "svg-tools", key: "svg", category: "vector", icon: Shapes, tone: "lavender", load: () => import("../tools/svg-workshop") },
   { id: "typography", key: "typography", category: "type", icon: Type, tone: "sand", load: () => import("../tools/typography") }
 ];
