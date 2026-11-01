@@ -1,6 +1,9 @@
 import { harmony, oklchToRgb, rgbToHex, rgbToOklch, toneScale, type HarmonyKind, type Rgb } from "../color-tools/color";
 
 export const styles = ["mesh", "orbs", "waves", "blobs"] as const;
+export const patterns = ["none", "dots", "grid", "contours", "diagonal"] as const;
+export type Pattern = (typeof patterns)[number];
+export type PaletteKind = "harmony" | "material";
 export type Style = (typeof styles)[number];
 
 export const sizes = [
@@ -19,6 +22,8 @@ export interface SceneParams {
   style: Style;
   base: Rgb;
   harmony: HarmonyKind;
+  paletteKind: PaletteKind;
+  pattern?: Pattern;
   mode: Mode;
   count: number;
 }
@@ -34,6 +39,7 @@ export interface Scene {
   to: string;
   angle: number;
   palette: string[];
+  pattern: Pattern;
   shapes: Shape[];
 }
 
@@ -48,15 +54,16 @@ export function mulberry32(seed: number) {
   };
 }
 
-export function buildPalette(base: Rgb, kind: HarmonyKind): string[] {
+export function buildPalette(base: Rgb, harmonyKind: HarmonyKind, paletteKind: PaletteKind): string[] {
+  if (paletteKind === "material") return toneScale(base).map(rgbToHex);
   const tones = toneScale(base);
-  return [...harmony(base, kind), tones[2] ?? base, tones[5] ?? base].map(rgbToHex);
+  return [...harmony(base, harmonyKind), tones[2] ?? base, tones[5] ?? base].map(rgbToHex);
 }
 
 export function buildScene(params: SceneParams): Scene {
   const random = mulberry32(params.seed);
   const range = (min: number, max: number) => min + random() * (max - min);
-  const palette = buildPalette(params.base, params.harmony);
+  const palette = buildPalette(params.base, params.harmony, params.paletteKind);
   const color = () => palette[Math.floor(random() * palette.length)] ?? "#888888";
 
   const { c, h } = rgbToOklch(params.base);
@@ -100,5 +107,5 @@ export function buildScene(params: SceneParams): Scene {
 
   if (params.style === "orbs") shapes.sort((a, b) => (b.kind === "orb" && a.kind === "orb" ? b.r - a.r : 0));
 
-  return { from: rgbToHex(from), to: rgbToHex(to), angle: range(20, 160), palette, shapes };
+  return { from: rgbToHex(from), to: rgbToHex(to), angle: range(20, 160), palette, pattern: params.pattern ?? "none", shapes };
 }
