@@ -16,9 +16,9 @@ type DailyQuote = {
 };
 
 const fallbacks: Record<string, DailyQuote> = {
-  "pt-BR": { quote: "A criatividade é a inteligência se divertindo.", author: "Albert Einstein" },
-  es: { quote: "La creatividad es la inteligencia divirtiéndose.", author: "Albert Einstein" },
-  en: { quote: "Creativity is intelligence having fun.", author: "Albert Einstein" }
+  "pt-BR": { quote: "Uma boa ideia merece espaço para existir.", author: "chloe's design hub" },
+  es: { quote: "Una buena idea merece espacio para existir.", author: "chloe's design hub" },
+  en: { quote: "A good idea deserves room to exist.", author: "chloe's design hub" }
 };
 
 function stringValue(value: unknown) {
