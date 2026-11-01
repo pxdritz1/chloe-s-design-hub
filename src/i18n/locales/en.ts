@@ -225,18 +225,18 @@ export const en = {
     copyCss: "copy css",
     copied: "copied"
   },
-  photocraft: { localTitle: "local editing in your browser", localNote: "PhotoCraft runs as WebAssembly in your browser. your files are not uploaded; the build is fetched directly from the upstream project.", openNew: "open in new tab", frameTitle: "PhotoCraft editor", saveNote: "there is no autosave or crash recovery. export your work before closing or reloading." },
-  svg: { source: "SVG source", import: "import SVG", format: "format markup", help: "edit the SVG markup. the preview runs in an isolated frame with scripts disabled.", invalidFile: "choose a valid SVG file.", preview: "preview", previewTitle: "SVG artwork preview", download: "download SVG" },
-  accessibility: { colors: "colors", foreground: "text color", background: "background color", ratio: "contrast", preview: "preview", sampleTitle: "Sample heading", sampleBody: "Comfortable text needs enough contrast to remain readable in different viewing conditions.", sampleButton: "primary action", aaNormal: "normal text AA", aaLarge: "large text AA", aaaNormal: "normal text AAA", aaaLarge: "large text AAA", pass: "pass", fail: "fail", note: "The calculation follows the WCAG contrast formula. Large text means at least 18 pt or 14 pt bold." },
+  photocraft: { localTitle: "local editing in your browser", localNote: "photocraft runs as webassembly in your browser. your files are not uploaded; the build is fetched directly from the upstream project.", openNew: "open in new tab", frameTitle: "photocraft editor", saveNote: "there is no autosave or crash recovery. export your work before closing or reloading." },
+  svg: { source: "svg source", import: "import svg", format: "format markup", help: "edit the svg markup. the preview runs in an isolated frame with scripts disabled.", invalidFile: "choose a valid svg file.", preview: "preview", previewTitle: "svg artwork preview", download: "download svg" },
+  accessibility: { colors: "colors", foreground: "text color", background: "background color", ratio: "contrast", preview: "preview", sampleTitle: "sample heading", sampleBody: "comfortable text needs enough contrast to remain readable in different viewing conditions.", sampleButton: "primary action", aaNormal: "normal text aa", aaLarge: "large text aa", aaaNormal: "normal text aaa", aaaLarge: "large text aaa", pass: "pass", fail: "fail", note: "the calculation follows the wcag contrast formula. large text means at least 18 pt or 14 pt bold." },
   tools: {
     halftone: { name: "halftone creator", description: "turn images into expressive dot patterns." },
     wallpaper: { name: "wallpaper studio", description: "compose wallpapers with shapes, color and texture." },
-    photocraft: { name: "photocraft", description: "a full image editor in WebAssembly, right in your browser." },
+    photocraft: { name: "photocraft", description: "a full image editor in webassembly, right in your browser." },
     background: { name: "background remover", description: "prepare clean cutouts with local processing." },
     converters: { name: "format converters", description: "convert images between png, jpg and webp, and turn video into gif." },
     colors: { name: "color tools", description: "explore, convert and build thoughtful palettes." },
     colorMatrix: { name: "color matrix", description: "swap exact colors, invert channels and fine-tune saturation." },
-    accessibility: { name: "contrast & vision", description: "check color contrast against WCAG criteria." },
+    accessibility: { name: "contrast & vision", description: "check color contrast against wcag criteria." },
     svg: { name: "svg workshop", description: "create, inspect and optimize vector graphics." },
     typography: { name: "typography studio", description: "compare type, build scales and test pairings." }
   }
