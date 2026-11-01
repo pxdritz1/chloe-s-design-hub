@@ -35,7 +35,7 @@ export const tools: readonly Tool[] = [
   { id: "color-matrix", key: "colorMatrix", category: "color", icon: SlidersHorizontal, tone: "sand", load: () => import("../tools/color-matrix") },
   { id: "accessibility", key: "accessibility", category: "color", icon: ShieldCheck, tone: "clay" },
   { id: "svg-tools", key: "svg", category: "vector", icon: Shapes, tone: "lavender" },
-  { id: "typography", key: "typography", category: "type", icon: Type, tone: "sand" }
+  { id: "typography", key: "typography", category: "type", icon: Type, tone: "sand", load: () => import("../tools/typography") }
 ];
 
 export const toneClasses: Record<ToolTone, string> = {
