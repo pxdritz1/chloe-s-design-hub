@@ -233,7 +233,7 @@ export const ptBR: Translation = {
   tools: {
     halftone: { name: "criador de halftone", description: "transforme imagens em padrões expressivos de pontos." },
     wallpaper: { name: "estúdio de wallpapers", description: "crie wallpapers com formas, cores e texturas." },
-    photocraft: { name: "photocraft", description: "um espaço direto para edições do dia a dia." },
+    photocraft: { name: "photocraft", description: "um editor de imagens completo em WebAssembly, direto no navegador." },
     background: { name: "removedor de fundo", description: "prepare recortes usando processamento local." },
     converters: { name: "conversores de formato", description: "converta imagens entre png, jpg e webp e transforme vídeo em gif." },
     colors: { name: "ferramentas de cor", description: "explore, converta e crie paletas." },
