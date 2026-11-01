@@ -52,6 +52,14 @@ describe("scene", () => {
     }
   });
 
+  it("supports the additional generator styles", () => {
+    for (const style of ["aurora", "rings", "ribbons", "geometry"] as const) {
+      const scene = buildScene({ ...params, style, count: 5 });
+      expect(scene.shapes).toHaveLength(5);
+      expect(scene.shapes.every((shape) => shape.alpha > 0 && shape.alpha <= 1)).toBe(true);
+    }
+  });
+
   it("makes dark backgrounds darker than light ones", () => {
     const light = buildScene({ ...params, mode: "light" });
     const dark = buildScene({ ...params, mode: "dark" });

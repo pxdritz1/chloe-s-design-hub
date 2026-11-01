@@ -140,10 +140,13 @@ export const ptBR: Translation = {
     noVideo: "este navegador não conseguiu abrir esse vídeo."
   },
   wallpaper: {
+    presetsTitle: "comece por um estilo",
+    presetsHint: "composições prontas para ajustar do seu jeito.",
+    presets: { soft: "formas suaves", editorial: "editorial", aurora: "aurora", ribbons: "fitas" },
     size: "tamanho",
     sizes: { desktop: "desktop", qhd: "2k", uhd: "4k", phone: "celular", square: "quadrado" },
     style: "estilo",
-    styles: { mesh: "malha", orbs: "esferas", waves: "ondas", blobs: "formas" },
+    styles: { mesh: "malha", orbs: "esferas", waves: "ondas", blobs: "formas", aurora: "aurora", rings: "anéis", ribbons: "fitas", geometry: "geométrico" },
     pattern: "padrão",
     patterns: { none: "nenhum", dots: "pontos", grid: "grade", contours: "contornos", diagonal: "diagonal" },
     tone: "tom",
@@ -180,7 +183,8 @@ export const ptBR: Translation = {
       cookie4: "cookie 4", cookie6: "cookie 6", cookie9: "cookie 9", cookie12: "cookie 12", clover4: "trevo 4",
       clover8: "trevo 8", flower: "flor", puffy: "fofinha", gem: "gema", cross: "cruz", plus: "mais",
       chevron: "chevron", teardrop: "gota", leaf: "folha", crescent: "lua crescente", sparkle: "brilho",
-      gear: "engrenagem", flower8: "flor de oito pétalas", petal: "pétala"
+      gear: "engrenagem", flower8: "flor de oito pétalas", petal: "pétala",
+      octagon: "octógono", decagon: "decágono", roundedTriangle: "triângulo arredondado", roundedDiamond: "losango arredondado", flower6: "flor de seis pétalas", sparkle8: "brilho de oito pontas"
     }
   },
   typography: {

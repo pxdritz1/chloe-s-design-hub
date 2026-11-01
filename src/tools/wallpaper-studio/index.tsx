@@ -14,6 +14,13 @@ const paletteKinds: PaletteKind[] = ["harmony", "material"];
 const previewSide = 1100;
 const groups = ["basic", "material", "expressive"] as const;
 
+const presets = [
+  { id: "soft", style: "blobs" as Style, pattern: "none" as Pattern, base: "#c5b4df", count: 6, grain: 18 },
+  { id: "editorial", style: "geometry" as Style, pattern: "grid" as Pattern, base: "#d9c4a3", count: 8, grain: 8 },
+  { id: "aurora", style: "aurora" as Style, pattern: "contours" as Pattern, base: "#547b78", count: 9, grain: 30 },
+  { id: "ribbons", style: "ribbons" as Style, pattern: "diagonal" as Pattern, base: "#d98e9a", count: 7, grain: 12 }
+] as const;
+
 type Drag =
   | { kind: "move"; start: Point; origin: Layer }
   | { kind: "scale"; origin: Layer }
@@ -29,6 +36,7 @@ export default function WallpaperStudio() {
   const overlayRef = useRef<SVGSVGElement>(null);
   const dragRef = useRef<Drag | null>(null);
   const [sizeId, setSizeId] = useState<SizeId>("desktop");
+  const [activePreset, setActivePreset] = useState<string>("soft");
   const [style, setStyle] = useState<Style>("mesh");
   const [pattern, setPattern] = useState<Pattern>("contours");
   const [mode, setMode] = useState<Mode>("light");
@@ -70,6 +78,20 @@ export default function WallpaperStudio() {
     observer.observe(canvas);
     return () => observer.disconnect();
   }, [size]);
+
+  function applyPreset(preset: (typeof presets)[number]) {
+    setActivePreset(preset.id);
+    setStyle(preset.style);
+    setPattern(preset.pattern);
+    setBaseHex(preset.base);
+    setPaletteKind("harmony");
+    setHarmony("analogous");
+    setCount(preset.count);
+    setGrain(preset.grain);
+    setSeed(Math.floor(Math.random() * 1_000_000_000));
+    setLayers([]);
+    setSelectedId(null);
+  }
 
   function update(id: number, change: Partial<Layer>) {
     setLayers((previous) => previous.map((layer) => (layer.id === id ? { ...layer, ...change } : layer)));
@@ -202,6 +224,21 @@ export default function WallpaperStudio() {
   return (
     <div className="grid gap-3 lg:grid-cols-[23rem_minmax(0,1fr)]">
       <section className="panel space-y-5">
+        <div className="space-y-3">
+          <div>
+            <p className="text-sm font-semibold">{t("wallpaper.presetsTitle")}</p>
+            <p className="mt-1 text-xs text-muted">{t("wallpaper.presetsHint")}</p>
+          </div>
+          <div className="grid grid-cols-2 gap-2">
+            {presets.map((preset) => (
+              <button key={preset.id} onClick={() => applyPreset(preset)} aria-pressed={activePreset === preset.id} className="group overflow-hidden rounded-2xl border border-border bg-surface text-left transition-colors hover:border-accent aria-pressed:border-accent aria-pressed:bg-sage-soft">
+                <span className="block h-10" style={{ background: `linear-gradient(135deg, ${preset.base}, ${preset.id === "aurora" ? "#263e52" : preset.id === "editorial" ? "#f2e8d8" : preset.id === "ribbons" ? "#f4c9c5" : "#f3eafa"})` }} />
+                <span className="block px-3 py-2 text-xs font-medium">{t(`wallpaper.presets.${preset.id}`)}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className="h-px bg-border" />
         <div className="space-y-2">
           <span className="text-xs font-medium text-muted">{t("wallpaper.size")}</span>
           <div role="radiogroup" aria-label={t("wallpaper.size")} className="flex flex-wrap gap-1.5">
@@ -219,7 +256,7 @@ export default function WallpaperStudio() {
           <span className="text-xs font-medium text-muted">{t("wallpaper.style")}</span>
           <div role="radiogroup" aria-label={t("wallpaper.style")} className="flex flex-wrap gap-1.5">
             {styles.map((option) => (
-              <button key={option} role="radio" aria-checked={style === option} onClick={() => setStyle(option)} className="chip">
+              <button key={option} role="radio" aria-checked={style === option} onClick={() => { setStyle(option); setActivePreset(""); }} className="chip">
                 {t(`wallpaper.styles.${option}`)}
               </button>
             ))}
@@ -229,7 +266,7 @@ export default function WallpaperStudio() {
           <span className="text-xs font-medium text-muted">{t("wallpaper.pattern")}</span>
           <div role="radiogroup" aria-label={t("wallpaper.pattern")} className="flex flex-wrap gap-1.5">
             {patterns.map((option) => (
-              <button key={option} role="radio" aria-checked={pattern === option} onClick={() => setPattern(option)} className="chip">
+              <button key={option} role="radio" aria-checked={pattern === option} onClick={() => { setPattern(option); setActivePreset(""); }} className="chip">
                 {t(`wallpaper.patterns.${option}`)}
               </button>
             ))}

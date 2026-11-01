@@ -138,10 +138,13 @@ export const en = {
     noVideo: "this browser couldn't play that video."
   },
   wallpaper: {
+    presetsTitle: "start with a look",
+    presetsHint: "ready-made compositions to make your own.",
+    presets: { soft: "soft forms", editorial: "editorial", aurora: "aurora", ribbons: "ribbons" },
     size: "size",
     sizes: { desktop: "desktop", qhd: "2k", uhd: "4k", phone: "phone", square: "square" },
     style: "style",
-    styles: { mesh: "mesh", orbs: "orbs", waves: "waves", blobs: "blobs" },
+    styles: { mesh: "mesh", orbs: "orbs", waves: "waves", blobs: "blobs", aurora: "aurora", rings: "rings", ribbons: "ribbons", geometry: "geometry" },
     pattern: "pattern",
     patterns: { none: "none", dots: "dots", grid: "grid", contours: "contours", diagonal: "diagonal" },
     tone: "tone",
@@ -178,7 +181,8 @@ export const en = {
       cookie4: "cookie 4", cookie6: "cookie 6", cookie9: "cookie 9", cookie12: "cookie 12", clover4: "clover 4",
       clover8: "clover 8", flower: "flower", puffy: "puffy", gem: "gem", cross: "cross", plus: "plus",
       chevron: "chevron", teardrop: "teardrop", leaf: "leaf", crescent: "crescent", sparkle: "sparkle",
-      gear: "gear", flower8: "eight-petal flower", petal: "petal"
+      gear: "gear", flower8: "eight-petal flower", petal: "petal",
+      octagon: "octagon", decagon: "decagon", roundedTriangle: "rounded triangle", roundedDiamond: "rounded diamond", flower6: "six-petal flower", sparkle8: "eight-point sparkle"
     }
   },
   typography: {

@@ -1,6 +1,6 @@
 import { harmony, oklchToRgb, rgbToHex, rgbToOklch, toneScale, type HarmonyKind, type Rgb } from "../color-tools/color";
 
-export const styles = ["mesh", "orbs", "waves", "blobs"] as const;
+export const styles = ["mesh", "orbs", "waves", "blobs", "aurora", "rings", "ribbons", "geometry"] as const;
 export const patterns = ["none", "dots", "grid", "contours", "diagonal"] as const;
 export type Pattern = (typeof patterns)[number];
 export type PaletteKind = "harmony" | "material";
@@ -76,22 +76,24 @@ export function buildScene(params: SceneParams): Scene {
   const count = Math.max(1, Math.round(params.count));
 
   for (let index = 0; index < count; index += 1) {
-    if (params.style === "mesh") {
-      shapes.push({ kind: "glow", x: random(), y: random(), r: range(0.3, 0.75), color: color(), alpha: range(0.55, 0.95) });
-    } else if (params.style === "orbs") {
-      shapes.push({ kind: "orb", x: random(), y: random(), r: range(0.04, 0.26), color: color(), alpha: range(0.45, 0.9), ring: random() < 0.3 });
-    } else if (params.style === "waves") {
+    if (params.style === "mesh" || params.style === "aurora") {
+      const aurora = params.style === "aurora";
+      shapes.push({ kind: "glow", x: random(), y: aurora ? range(0.15, 0.85) : random(), r: range(aurora ? 0.42 : 0.3, aurora ? 0.9 : 0.75), color: color(), alpha: range(aurora ? 0.28 : 0.55, aurora ? 0.58 : 0.95) });
+    } else if (params.style === "orbs" || params.style === "rings") {
+      const rings = params.style === "rings";
+      shapes.push({ kind: "orb", x: random(), y: random(), r: range(0.04, rings ? 0.3 : 0.26), color: color(), alpha: range(0.45, 0.9), ring: rings || random() < 0.3 });
+    } else if (params.style === "waves" || params.style === "ribbons") {
       shapes.push({
         kind: "wave",
         baseline: ((index + 0.6) / (count + 0.3)) * 0.9 + range(-0.04, 0.04),
-        amplitude: range(0.025, 0.11),
-        cycles: range(0.6, 2.4),
+        amplitude: params.style === "ribbons" ? range(0.07, 0.16) : range(0.025, 0.11),
+        cycles: params.style === "ribbons" ? range(0.35, 1.1) : range(0.6, 2.4),
         phase: range(0, Math.PI * 2),
         color: palette[index % palette.length] ?? "#888888",
         alpha: range(0.7, 0.95)
       });
     } else {
-      const points = 7 + Math.floor(random() * 4);
+      const points = params.style === "geometry" ? 3 + Math.floor(random() * 5) : 7 + Math.floor(random() * 4);
       shapes.push({
         kind: "blob",
         x: random(),
@@ -105,7 +107,7 @@ export function buildScene(params: SceneParams): Scene {
     }
   }
 
-  if (params.style === "orbs") shapes.sort((a, b) => (b.kind === "orb" && a.kind === "orb" ? b.r - a.r : 0));
+  if (params.style === "orbs" || params.style === "rings") shapes.sort((a, b) => (b.kind === "orb" && a.kind === "orb" ? b.r - a.r : 0));
 
   return { from: rgbToHex(from), to: rgbToHex(to), angle: range(20, 160), palette, pattern: params.pattern ?? "none", shapes };
 }

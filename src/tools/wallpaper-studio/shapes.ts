@@ -38,7 +38,13 @@ export const shapeIds = [
   "sparkle",
   "gear",
   "flower8",
-  "petal"
+  "petal",
+  "octagon",
+  "decagon",
+  "roundedTriangle",
+  "roundedDiamond",
+  "flower6",
+  "sparkle8"
 ] as const;
 
 export type ShapeId = (typeof shapeIds)[number];
@@ -205,7 +211,13 @@ const builders: Record<ShapeId, [ShapeGroup, () => Point[]]> = {
   sparkle: ["expressive", () => fillet(star(4, 0.12), starRadii(4, 0.04, 0.02))],
   gear: ["expressive", () => polar(240, (t) => 0.84 + 0.16 * Math.cos(12 * t))],
   flower8: ["expressive", () => polar(280, (t) => 0.58 + 0.42 * Math.abs(Math.cos(4 * t)) ** 0.8)],
-  petal: ["expressive", () => polar(240, (t) => 0.42 + 0.58 * Math.abs(Math.cos(t)) ** 0.75)]
+  petal: ["expressive", () => polar(240, (t) => 0.42 + 0.58 * Math.abs(Math.cos(t)) ** 0.75)],
+  octagon: ["basic", () => fillet(regular(8), 0.12)],
+  decagon: ["basic", () => fillet(regular(10), 0.1)],
+  roundedTriangle: ["basic", () => fillet(regular(3), 0.48)],
+  roundedDiamond: ["basic", () => fillet(regular(4), 0.38)],
+  flower6: ["material", () => polar(280, (t) => 0.58 + 0.42 * Math.abs(Math.cos(3 * t)) ** 0.8)],
+  sparkle8: ["expressive", () => fillet(star(8, 0.16), starRadii(8, 0.04, 0.02))]
 };
 
 export const shapeDefs: ShapeDef[] = shapeIds.map((id) => {
