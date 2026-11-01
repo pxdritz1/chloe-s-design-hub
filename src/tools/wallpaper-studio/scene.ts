@@ -22,7 +22,7 @@ export interface SceneParams {
   style: Style;
   base: Rgb;
   harmony: HarmonyKind;
-  paletteKind: PaletteKind;
+  paletteKind?: PaletteKind;
   pattern?: Pattern;
   mode: Mode;
   count: number;
@@ -54,7 +54,7 @@ export function mulberry32(seed: number) {
   };
 }
 
-export function buildPalette(base: Rgb, harmonyKind: HarmonyKind, paletteKind: PaletteKind): string[] {
+export function buildPalette(base: Rgb, harmonyKind: HarmonyKind, paletteKind: PaletteKind = "harmony"): string[] {
   if (paletteKind === "material") return toneScale(base).map(rgbToHex);
   const tones = toneScale(base);
   return [...harmony(base, harmonyKind), tones[2] ?? base, tones[5] ?? base].map(rgbToHex);
@@ -63,7 +63,7 @@ export function buildPalette(base: Rgb, harmonyKind: HarmonyKind, paletteKind: P
 export function buildScene(params: SceneParams): Scene {
   const random = mulberry32(params.seed);
   const range = (min: number, max: number) => min + random() * (max - min);
-  const palette = buildPalette(params.base, params.harmony, params.paletteKind);
+  const palette = buildPalette(params.base, params.harmony, params.paletteKind ?? "harmony");
   const color = () => palette[Math.floor(random() * palette.length)] ?? "#888888";
 
   const { c, h } = rgbToOklch(params.base);
