@@ -225,6 +225,8 @@ export const es: Translation = {
     copyCss: "copiar css",
     copied: "copiado"
   },
+  photocraft: { localTitle: "edición local en el navegador", localNote: "PhotoCraft se ejecuta como WebAssembly en tu navegador. tus archivos no se suben; la compilación se obtiene del proyecto original.", openNew: "abrir en una pestaña nueva", frameTitle: "editor PhotoCraft", saveNote: "no hay guardado automático ni recuperación de fallos. exporta tu trabajo antes de cerrar o recargar." },
+  svg: { source: "código SVG", import: "importar SVG", format: "ordenar código", help: "edita el marcado SVG. la vista previa se ejecuta en un marco aislado y los scripts están desactivados.", invalidFile: "selecciona un archivo SVG válido.", preview: "vista previa", previewTitle: "vista previa del gráfico SVG", download: "descargar SVG" },
   tools: {
     halftone: { name: "creador de semitonos", description: "convierte imágenes en patrones expresivos de puntos." },
     wallpaper: { name: "estudio de fondos", description: "compón fondos con formas, color y textura." },
