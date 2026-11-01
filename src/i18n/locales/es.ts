@@ -14,6 +14,8 @@ export const es: Translation = {
   comingDescription: "el espacio de trabajo está en preparación. no se simula ninguna funcionalidad.",
   back: "volver al panel",
   menu: "menú",
+  skipToContent: "saltar al contenido",
+  mainNavigation: "navegación principal",
   sidebar: { discovery: "descubrimiento aleatorio", loadingArticle: "buscando algo interesante…", quote: "frase del día", daily: "se actualiza a diario" },
   theme: "tema",
   language: "idioma",
