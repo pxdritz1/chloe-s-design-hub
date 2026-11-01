@@ -55,7 +55,8 @@ export function Shell() {
   });
 
   return (
-    <div className="min-h-screen p-3 text-foreground md:flex md:gap-4 md:p-4">\n      <a href="#main-content" className="sr-only z-50 rounded-full bg-accent px-4 py-3 font-semibold text-on-accent focus:not-sr-only focus:fixed focus:left-4 focus:top-4">{t("skipToContent")}</a>
+    <div className="min-h-screen p-3 text-foreground md:flex md:gap-4 md:p-4">
+      <a href="#main-content" className="sr-only z-50 rounded-full bg-accent px-4 py-3 font-semibold text-on-accent focus:not-sr-only focus:fixed focus:left-4 focus:top-4">{t("skipToContent")}</a>
       <aside className="surface-panel sticky top-4 hidden h-[calc(100vh-2rem)] min-h-0 w-[18rem] shrink-0 flex-col overflow-y-auto overscroll-contain rounded-[1.75rem] p-3 md:flex">
         <Link to="/dashboard" className="flex items-center gap-3 rounded-2xl px-3 py-4">
           <BrandMark avatar={avatar} />
