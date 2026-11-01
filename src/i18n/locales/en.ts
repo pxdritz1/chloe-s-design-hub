@@ -231,12 +231,12 @@ export const en = {
   tools: {
     halftone: { name: "halftone creator", description: "turn images into expressive dot patterns." },
     wallpaper: { name: "wallpaper studio", description: "compose wallpapers with shapes, color and texture." },
-    photocraft: { name: "photocraft", description: "a focused workspace for everyday image edits." },
+    photocraft: { name: "photocraft", description: "a full image editor in WebAssembly, right in your browser." },
     background: { name: "background remover", description: "prepare clean cutouts with local processing." },
     converters: { name: "format converters", description: "convert images between png, jpg and webp, and turn video into gif." },
     colors: { name: "color tools", description: "explore, convert and build thoughtful palettes." },
     colorMatrix: { name: "color matrix", description: "swap exact colors, invert channels and fine-tune saturation." },
-    accessibility: { name: "contrast & vision", description: "check contrast and preview color-vision differences." },
+    accessibility: { name: "contrast & vision", description: "check color contrast against WCAG criteria." },
     svg: { name: "svg workshop", description: "create, inspect and optimize vector graphics." },
     typography: { name: "typography studio", description: "compare type, build scales and test pairings." }
   }
