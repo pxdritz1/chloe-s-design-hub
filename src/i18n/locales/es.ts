@@ -233,12 +233,12 @@ export const es: Translation = {
   tools: {
     halftone: { name: "creador de semitonos", description: "convierte imágenes en patrones expresivos de puntos." },
     wallpaper: { name: "estudio de fondos", description: "compón fondos con formas, color y textura." },
-    photocraft: { name: "photocraft", description: "un espacio sencillo para editar imágenes." },
+    photocraft: { name: "photocraft", description: "un editor de imágenes completo en WebAssembly, directamente en el navegador." },
     background: { name: "quitar fondo", description: "prepara recortes con procesamiento local." },
     converters: { name: "conversores de formato", description: "convierte imágenes entre png, jpg y webp y transforma vídeo en gif." },
     colors: { name: "herramientas de color", description: "explora, convierte y crea paletas." },
     colorMatrix: { name: "matriz de color", description: "cambia colores exactos, invierte canales y ajusta la saturación." },
-    accessibility: { name: "contraste y visión", description: "comprueba el contraste y previsualiza diferencias de visión del color." },
+    accessibility: { name: "contraste y visión", description: "comprueba el contraste de color según los criterios WCAG." },
     svg: { name: "taller svg", description: "crea, inspecciona y optimiza gráficos vectoriales." },
     typography: { name: "estudio tipográfico", description: "compara fuentes, crea escalas y prueba combinaciones." }
   }
