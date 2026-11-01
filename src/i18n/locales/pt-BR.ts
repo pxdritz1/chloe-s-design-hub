@@ -229,6 +229,7 @@ export const ptBR: Translation = {
   },
   photocraft: { localTitle: "edição local no navegador", localNote: "o PhotoCraft roda como WebAssembly no seu navegador. seus arquivos não são enviados; a build é obtida diretamente do projeto original.", openNew: "abrir em nova aba", frameTitle: "editor PhotoCraft", saveNote: "não há salvamento automático nem recuperação de falhas. exporte seu trabalho antes de fechar ou recarregar." },
   svg: { source: "código SVG", import: "importar SVG", format: "organizar código", help: "edite o markup SVG. a prévia roda em um frame isolado e scripts são desativados.", invalidFile: "selecione um arquivo SVG válido.", preview: "prévia", previewTitle: "prévia do gráfico SVG", download: "baixar SVG" },
+  accessibility: { colors: "cores", foreground: "cor do texto", background: "cor de fundo", ratio: "contraste", preview: "prévia", sampleTitle: "exemplo de título", sampleBody: "um texto confortável precisa de contraste suficiente para continuar legível em diferentes condições de visão.", sampleButton: "ação principal", aaNormal: "contraste normal AA", aaLarge: "texto grande AA", aaaNormal: "contraste normal AAA", aaaLarge: "texto grande AAA", pass: "passa", fail: "falha", note: "o cálculo segue a fórmula de contraste WCAG. texto grande significa pelo menos 18 pt ou 14 pt em negrito." },
   tools: {
     halftone: { name: "criador de halftone", description: "transforme imagens em padrões expressivos de pontos." },
     wallpaper: { name: "estúdio de wallpapers", description: "crie wallpapers com formas, cores e texturas." },
