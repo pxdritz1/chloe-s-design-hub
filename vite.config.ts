@@ -1,5 +1,6 @@
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
+import { fileURLToPath, URL } from "node:url";
 import { loadEnv } from "vite";
 import { defineConfig } from "vitest/config";
 
@@ -14,6 +15,11 @@ export default defineConfig(({ mode }) => {
 
   return {
     base: BASE_PATH || "/",
+    resolve: {
+      alias: {
+        "@": fileURLToPath(new URL("./src", import.meta.url))
+      }
+    },
     plugins: [react(), tailwindcss()],
     worker: { format: "es" as const },
     build: {
