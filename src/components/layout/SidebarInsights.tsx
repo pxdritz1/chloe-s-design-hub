@@ -105,7 +105,7 @@ export function SidebarInsights() {
         </div>
         {article?.image && (
           <a href={article.url} target="_blank" rel="noreferrer" className="mt-3 block aspect-[16/9] overflow-hidden bg-surface">
-            <img src={article.image} alt="" loading="lazy" className="size-full object-cover transition-transform duration-500 hover:scale-[1.03]" />
+            <img src={article.image} alt={article.title} loading="lazy" className="size-full object-cover transition-transform duration-500 hover:scale-[1.03]" />
           </a>
         )}
         <div className="space-y-2 p-4 pt-3">
