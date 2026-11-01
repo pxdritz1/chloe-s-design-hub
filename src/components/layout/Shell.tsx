@@ -56,7 +56,7 @@ export function Shell() {
 
   return (
     <div className="min-h-screen p-3 text-foreground md:flex md:gap-4 md:p-4">
-      <aside className="surface-panel sticky top-4 hidden h-[calc(100vh-2rem)] w-[18rem] shrink-0 flex-col rounded-[1.75rem] p-3 md:flex">
+      <aside className="surface-panel sticky top-4 hidden h-[calc(100vh-2rem)] min-h-0 w-[18rem] shrink-0 flex-col overflow-y-auto overscroll-contain rounded-[1.75rem] p-3 md:flex">
         <Link to="/dashboard" className="flex items-center gap-3 rounded-2xl px-3 py-4">
           <BrandMark avatar={avatar} />
           <span className="min-w-0">
@@ -68,7 +68,9 @@ export function Shell() {
         <div className="mb-2 mt-7 px-4 text-[11px] font-semibold uppercase tracking-[0.12em] text-muted">{t("workspace")}</div>
         <nav className="space-y-1">{navLinks()}</nav>
 
-        <SidebarInsights />
+        <div className="mt-auto shrink-0">
+          <SidebarInsights />
+        </div>
         <p className="px-3 pb-1 pt-3 text-center text-[10px] text-muted">{t("local")}</p>
       </aside>
 
