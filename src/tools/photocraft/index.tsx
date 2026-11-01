@@ -24,7 +24,7 @@ export default function PhotoCraft() {
         <iframe
           src={editorUrl}
           title={t("photocraft.frameTitle")}
-          loading="lazy"
+          loading="eager"
           allow="fullscreen; clipboard-read; clipboard-write"
           allowFullScreen
           className="h-[min(78vh,900px)] min-h-[620px] w-full border-0 bg-white"
