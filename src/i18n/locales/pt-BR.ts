@@ -227,13 +227,13 @@ export const ptBR: Translation = {
     copyCss: "copiar css",
     copied: "copiado"
   },
-  photocraft: { localTitle: "edição local no navegador", localNote: "o PhotoCraft roda como WebAssembly no seu navegador. seus arquivos não são enviados; a build é obtida diretamente do projeto original.", openNew: "abrir em nova aba", frameTitle: "editor PhotoCraft", saveNote: "não há salvamento automático nem recuperação de falhas. exporte seu trabalho antes de fechar ou recarregar." },
-  svg: { source: "código SVG", import: "importar SVG", format: "organizar código", help: "edite o markup SVG. a prévia roda em um frame isolado e scripts são desativados.", invalidFile: "selecione um arquivo SVG válido.", preview: "prévia", previewTitle: "prévia do gráfico SVG", download: "baixar SVG" },
-  accessibility: { colors: "cores", foreground: "cor do texto", background: "cor de fundo", ratio: "contraste", preview: "prévia", sampleTitle: "exemplo de título", sampleBody: "um texto confortável precisa de contraste suficiente para continuar legível em diferentes condições de visão.", sampleButton: "ação principal", aaNormal: "contraste normal AA", aaLarge: "texto grande AA", aaaNormal: "contraste normal AAA", aaaLarge: "texto grande AAA", pass: "passa", fail: "falha", note: "o cálculo segue a fórmula de contraste WCAG. texto grande significa pelo menos 18 pt ou 14 pt em negrito." },
+  photocraft: { localTitle: "edição local no navegador", localNote: "o photocraft roda como webassembly no seu navegador. seus arquivos não são enviados; a build é obtida diretamente do projeto original.", openNew: "abrir em nova aba", frameTitle: "editor photocraft", saveNote: "não há salvamento automático nem recuperação de falhas. exporte seu trabalho antes de fechar ou recarregar." },
+  svg: { source: "código svg", import: "importar svg", format: "organizar código", help: "edite o markup svg. a prévia roda em um frame isolado e scripts são desativados.", invalidFile: "selecione um arquivo svg válido.", preview: "prévia", previewTitle: "prévia do gráfico svg", download: "baixar svg" },
+  accessibility: { colors: "cores", foreground: "cor do texto", background: "cor de fundo", ratio: "contraste", preview: "prévia", sampleTitle: "exemplo de título", sampleBody: "um texto confortável precisa de contraste suficiente para continuar legível em diferentes condições de visão.", sampleButton: "ação principal", aaNormal: "contraste normal aa", aaLarge: "texto grande aa", aaaNormal: "contraste normal aaa", aaaLarge: "texto grande aaa", pass: "passa", fail: "falha", note: "o cálculo segue a fórmula de contraste wcag. texto grande significa pelo menos 18 pt ou 14 pt em negrito." },
   tools: {
     halftone: { name: "criador de halftone", description: "transforme imagens em padrões expressivos de pontos." },
     wallpaper: { name: "estúdio de wallpapers", description: "crie wallpapers com formas, cores e texturas." },
-    photocraft: { name: "photocraft", description: "um editor de imagens completo em WebAssembly, direto no navegador." },
+    photocraft: { name: "photocraft", description: "um editor de imagens completo em webassembly, direto no navegador." },
     background: { name: "removedor de fundo", description: "prepare recortes usando processamento local." },
     converters: { name: "conversores de formato", description: "converta imagens entre png, jpg e webp e transforme vídeo em gif." },
     colors: { name: "ferramentas de cor", description: "explore, converta e crie paletas." },
