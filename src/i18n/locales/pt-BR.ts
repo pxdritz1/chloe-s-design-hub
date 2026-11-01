@@ -138,6 +138,21 @@ export const ptBR: Translation = {
     videoHint: "mp4, webm ou mov, o que o seu navegador conseguir tocar. nada é enviado.",
     noVideo: "este navegador não conseguiu abrir esse vídeo."
   },
+  wallpaper: {
+    size: "tamanho",
+    sizes: { desktop: "desktop", qhd: "2k", uhd: "4k", phone: "celular", square: "quadrado" },
+    style: "estilo",
+    styles: { mesh: "malha", orbs: "esferas", waves: "ondas", blobs: "formas" },
+    tone: "tom",
+    base: "cor base",
+    harmony: "harmonia",
+    complexity: "complexidade",
+    grain: "granulado",
+    shuffle: "embaralhar",
+    preview: "prévia do wallpaper",
+    palette: "paleta",
+    seed: "semente"
+  },
   tools: {
     halftone: { name: "criador de halftone", description: "transforme imagens em padrões expressivos de pontos." },
     wallpaper: { name: "estúdio de wallpapers", description: "crie wallpapers com formas, cores e texturas." },

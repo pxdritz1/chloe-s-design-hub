@@ -138,6 +138,21 @@ export const es: Translation = {
     videoHint: "mp4, webm o mov, lo que tu navegador pueda reproducir. no se sube nada.",
     noVideo: "este navegador no pudo abrir ese vídeo."
   },
+  wallpaper: {
+    size: "tamaño",
+    sizes: { desktop: "escritorio", qhd: "2k", uhd: "4k", phone: "móvil", square: "cuadrado" },
+    style: "estilo",
+    styles: { mesh: "malla", orbs: "esferas", waves: "olas", blobs: "formas" },
+    tone: "tono",
+    base: "color base",
+    harmony: "armonía",
+    complexity: "complejidad",
+    grain: "grano",
+    shuffle: "mezclar",
+    preview: "vista previa del fondo",
+    palette: "paleta",
+    seed: "semilla"
+  },
   tools: {
     halftone: { name: "creador de semitonos", description: "convierte imágenes en patrones expresivos de puntos." },
     wallpaper: { name: "estudio de fondos", description: "compón fondos con formas, color y textura." },

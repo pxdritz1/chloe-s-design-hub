@@ -27,7 +27,7 @@ export interface Tool {
 
 export const tools: readonly Tool[] = [
   { id: "halftone", key: "halftone", category: "image", icon: CircleDot, tone: "clay", load: () => import("../tools/halftone") },
-  { id: "wallpaper-studio", key: "wallpaper", category: "image", icon: Image, tone: "sage" },
+  { id: "wallpaper-studio", key: "wallpaper", category: "image", icon: Image, tone: "sage", load: () => import("../tools/wallpaper-studio") },
   { id: "photocraft", key: "photocraft", category: "image", icon: Blend, tone: "sand" },
   { id: "background-remover", key: "background", category: "image", icon: ScanLine, tone: "lavender", load: () => import("../tools/background-remover") },
   { id: "converters", key: "converters", category: "image", icon: Repeat, tone: "clay", load: () => import("../tools/converters") },

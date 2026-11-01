@@ -136,6 +136,21 @@ export const en = {
     videoHint: "mp4, webm or mov, whatever your browser can play. nothing is uploaded.",
     noVideo: "this browser couldn't play that video."
   },
+  wallpaper: {
+    size: "size",
+    sizes: { desktop: "desktop", qhd: "2k", uhd: "4k", phone: "phone", square: "square" },
+    style: "style",
+    styles: { mesh: "mesh", orbs: "orbs", waves: "waves", blobs: "blobs" },
+    tone: "tone",
+    base: "base color",
+    harmony: "harmony",
+    complexity: "complexity",
+    grain: "grain",
+    shuffle: "shuffle",
+    preview: "wallpaper preview",
+    palette: "palette",
+    seed: "seed"
+  },
   tools: {
     halftone: { name: "halftone creator", description: "turn images into expressive dot patterns." },
     wallpaper: { name: "wallpaper studio", description: "compose wallpapers with shapes, color and texture." },
